@@ -75,6 +75,8 @@ namespace PruebaGitHub
             this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
+            this.colnoguia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colcliente = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -330,6 +332,9 @@ namespace PruebaGitHub
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colnoguia,
+            this.colcliente});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 25);
             this.dataGridView1.Name = "dataGridView1";
@@ -552,6 +557,17 @@ namespace PruebaGitHub
             this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem1.Text = "Mover último";
             // 
+            // colnoguia
+            // 
+            this.colnoguia.HeaderText = "No Guía";
+            this.colnoguia.Name = "colnoguia";
+            // 
+            // colcliente
+            // 
+            this.colcliente.HeaderText = "Cliente";
+            this.colcliente.Name = "colcliente";
+            this.colcliente.Width = 250;
+            // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,5 +657,7 @@ namespace PruebaGitHub
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colcliente;
     }
 }
