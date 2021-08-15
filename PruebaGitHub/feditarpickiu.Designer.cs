@@ -77,6 +77,9 @@ namespace PruebaGitHub
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.colnoguia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colcliente = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colflor = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colorigen = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -406,6 +409,10 @@ namespace PruebaGitHub
             // dataGridView2
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colflor,
+            this.colcant,
+            this.colorigen});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 25);
             this.dataGridView2.Name = "dataGridView2";
@@ -568,6 +575,24 @@ namespace PruebaGitHub
             this.colcliente.Name = "colcliente";
             this.colcliente.Width = 250;
             // 
+            // colflor
+            // 
+            this.colflor.HeaderText = "Flor";
+            this.colflor.Name = "colflor";
+            this.colflor.Width = 150;
+            // 
+            // colcant
+            // 
+            this.colcant.HeaderText = "Cant";
+            this.colcant.Name = "colcant";
+            this.colcant.Width = 55;
+            // 
+            // colorigen
+            // 
+            this.colorigen.HeaderText = "Origen";
+            this.colorigen.Name = "colorigen";
+            this.colorigen.Width = 150;
+            // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,5 +684,8 @@ namespace PruebaGitHub
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
         private System.Windows.Forms.DataGridViewComboBoxColumn colcliente;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colflor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colorigen;
     }
 }
