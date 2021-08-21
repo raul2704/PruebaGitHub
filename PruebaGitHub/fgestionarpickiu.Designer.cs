@@ -32,6 +32,9 @@ namespace PruebaGitHub
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fgestionarpickiu));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnagregar = new System.Windows.Forms.ToolStripButton();
+            this.btneditar = new System.Windows.Forms.ToolStripButton();
+            this.btneliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -53,22 +56,19 @@ namespace PruebaGitHub
             this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.labresumen = new System.Windows.Forms.ToolStripStatusLabel();
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.btnagregar = new System.Windows.Forms.ToolStripButton();
-            this.btneditar = new System.Windows.Forms.ToolStripButton();
-            this.btneliminar = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.labresumen = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -92,6 +92,30 @@ namespace PruebaGitHub
             this.toolStrip1.Size = new System.Drawing.Size(1028, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnagregar
+            // 
+            this.btnagregar.Image = ((System.Drawing.Image)(resources.GetObject("btnagregar.Image")));
+            this.btnagregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(69, 22);
+            this.btnagregar.Text = "Agregar";
+            // 
+            // btneditar
+            // 
+            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
+            this.btneditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(57, 22);
+            this.btneditar.Text = "Editar";
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(70, 22);
+            this.btneliminar.Text = "Eliminar";
             // 
             // toolStripSeparator1
             // 
@@ -176,9 +200,9 @@ namespace PruebaGitHub
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(349, 6);
+            this.textBox4.Location = new System.Drawing.Point(351, 6);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 20);
+            this.textBox4.Size = new System.Drawing.Size(73, 20);
             this.textBox4.TabIndex = 0;
             // 
             // textBox2
@@ -301,55 +325,6 @@ namespace PruebaGitHub
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            this.bindingNavigatorSeparator2.Visible = false;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.labresumen});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1028, 22);
-            this.statusStrip1.TabIndex = 2;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // labresumen
-            // 
-            this.labresumen.Name = "labresumen";
-            this.labresumen.Size = new System.Drawing.Size(59, 17);
-            this.labresumen.Text = "Resumen:";
-            // 
             // bindingNavigatorAddNewItem
             // 
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -359,6 +334,13 @@ namespace PruebaGitHub
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
             this.bindingNavigatorAddNewItem.Visible = false;
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -388,6 +370,26 @@ namespace PruebaGitHub
             this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
+            // bindingNavigatorSeparator
+            // 
+            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            // 
+            // bindingNavigatorPositionItem
+            // 
+            this.bindingNavigatorPositionItem.AccessibleName = "Posición";
+            this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
+            this.bindingNavigatorPositionItem.Text = "0";
+            this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
+            // 
+            // bindingNavigatorSeparator1
+            // 
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
             // bindingNavigatorMoveNextItem
             // 
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -406,29 +408,27 @@ namespace PruebaGitHub
             this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
-            // btnagregar
+            // bindingNavigatorSeparator2
             // 
-            this.btnagregar.Image = ((System.Drawing.Image)(resources.GetObject("btnagregar.Image")));
-            this.btnagregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(69, 22);
-            this.btnagregar.Text = "Agregar";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.bindingNavigatorSeparator2.Visible = false;
             // 
-            // btneditar
+            // statusStrip1
             // 
-            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
-            this.btneditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btneditar.Name = "btneditar";
-            this.btneditar.Size = new System.Drawing.Size(57, 22);
-            this.btneditar.Text = "Editar";
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labresumen});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1028, 22);
+            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Text = "statusStrip1";
             // 
-            // btneliminar
+            // labresumen
             // 
-            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
-            this.btneliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(70, 22);
-            this.btneliminar.Text = "Eliminar";
+            this.labresumen.Name = "labresumen";
+            this.labresumen.Size = new System.Drawing.Size(59, 17);
+            this.labresumen.Text = "Resumen:";
             // 
             // fgestionarpickiu
             // 

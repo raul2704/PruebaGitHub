@@ -132,19 +132,19 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPYyAV+DRtL/Vt3DGF4f9/RqgQ8QCsuWnHfzAm
-        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7LP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
-        7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/kA1LQDbggpmkHAs2nHX6jNYEO8W3aYQaWIA8jO9mva7gcV
-        JhIwMAAA6znXWGsU8FQAAAAASUVORK5CYII=
+        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7zP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
+        7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/4A1LQDbggpmkHAo2nHX6jNYEO8W3aYQaWIA8jO9mva7gcV
+        JhIwMAAA2oTXTPn7+5MAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btneliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADHSURBVDhPjZNtDsIgDIY52pJ18de8g9QDGD9iMuO8pAmc
-        RLNfSoFGxwrjSZoMuueFsaAIg11vNAx+UIFBuJETB11vsZkswsdie/eTBayGR3i3mdyiW2V0ewkTXPmQ
-        nxxLt0duXGcNISSV3ern2AqUQlZlZhkCY7XMCCH1MiOFVMtEuu1YY2yXychc5ZDFgSGchM+RQyQ5tqQz
-        mYeUZCYbQhfjvyHJTBri/sygzB42T4TXmsxwiHPe5PpJerA7OPhBBXQBg6zUF6QqKehMsMl4AAAAAElF
-        TkSuQmCC
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVDhPjZNNDsIgEEa5WRedxlW9g4wHMP7EpMZ6SE3g
+        JJqubAeYaOlAeckkhen7oDQowmDTGg2dGxRgEG7khEHTWqwGi/C1WN/dZAar4eHfrYZp0a0yur74Ca50
+        yE8OpesjN66zhhASy9Pq59Dy5EJWZWYZAn2xzAgh5TIjhRTLRLztUH1o50nIXPmQxYEhnITPkUMkObSk
+        M5mH5GQmGUIX478hyUwcMv2ZTpk9bF4I7zWZ4ZAnwodcN0kPdgcHNyiALqCXlRoBnIUp5Ve2ES8AAAAA
+        SUVORK5CYII=
 </value>
   </data>
   <metadata name="novuelo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
