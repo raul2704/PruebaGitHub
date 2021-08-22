@@ -117,29 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="novuelo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="fechavuelo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colciudad.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colnoguia.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colcliente.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colflor.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colcant.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colorigen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
+  <metadata name="cgestionarpickiuBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>370, 19</value>
   </metadata>
   <metadata name="bindingNavigator1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -210,10 +189,10 @@
 </value>
   </data>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>238, 17</value>
+    <value>150, 16</value>
   </metadata>
   <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>354, 17</value>
+    <value>265, 19</value>
   </metadata>
   <data name="btnagregar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -226,18 +205,18 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPYyAV+DRtL/Vt3DGF4f9/RqgQ8QCsuWnHfzAm
-        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7DP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
-        7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/oA1LQDbggpmkHAtWnHX6jNYEO8W3aYQaWIA8jO9mva7gcV
-        JhIwMAAAqeXXKikqsPkAAAAASUVORK5CYII=
+        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7dP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
+        7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/oA1LQDbggpmkHAuWnHX6jNYEO8W3aYQaWIA8jO9mva7gcV
+        JhIwMAAAifvXFI8F0fwAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btneliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVDhPjZNNDsIgEEa5WRedxlW9g4wHMP7EpMZ6RRcm
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVDhPjZNNDsIgEEa5WRedxlW9g4wHMP7EpMZ6RDcm
         cBJNV7YDTLR0oLxkksL0fVAaFGGwaY2Gzg0KMAg3csKgaS1Wg0X4WqzvbjKD1fDw71bDtOhWGV1f/ARX
         OuQnh9L1kRvXWUMIieVp9XNoeXIhqzKzDIG+WGaEkHKZkUKKZSLedqg+tPMkZK58yOLAEE7C58ghkhxa
-        0pnMQ3Iykwyhi/HfkGQmDpn+TKfMHjYvhPeazHDIE+FDrpukB7uDgxsUQBfQy0qNm6op4qn1BGQAAAAA
+        0pnMQ3Iykwyhi/HfkGQmDpn+TKfMHjYvhPeazHDIE+FDrpukB7uDgxsUQBfQy0qNm2Ep4QiRhksAAAAA
         SUVORK5CYII=
 </value>
   </data>
