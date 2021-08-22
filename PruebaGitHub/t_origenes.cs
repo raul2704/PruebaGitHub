@@ -11,7 +11,11 @@ namespace PruebaGitHub
        //Al fin aqui estoy yo
        public string GetOrigen
        {
-            get { return Paises.Nombre + "/ " + Ciudades.Nombre + "/ " + Fincas.Nombre+"/ "+Siglas!=null?Siglas.Sigla:""; }  
+            get 
+            {
+                string sigla = Siglas != null ? Siglas.Sigla : "";
+                return Paises.Nombre + "/ " + Ciudades.Nombre + "/ " + Fincas.Nombre+"/ "+sigla; 
+            }  
        }           
 
     }

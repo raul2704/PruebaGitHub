@@ -30,10 +30,10 @@ namespace PruebaGitHub
         public virtual DbSet<Fincas> Fincas { get; set; }
         public virtual DbSet<Flores> Flores { get; set; }
         public virtual DbSet<Guias> Guias { get; set; }
-        public virtual DbSet<Origenes> Origenes { get; set; }
         public virtual DbSet<Paises> Paises { get; set; }
         public virtual DbSet<Pickiu> Pickiu { get; set; }
         public virtual DbSet<Siglas> Siglas { get; set; }
         public virtual DbSet<Vuelos> Vuelos { get; set; }
+        public virtual DbSet<Origenes> Origenes { get; set; }
     }
 }

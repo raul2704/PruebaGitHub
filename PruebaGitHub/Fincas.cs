@@ -17,8 +17,8 @@ namespace PruebaGitHub
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Fincas()
         {
-            this.Origenes = new HashSet<Origenes>();
             this.Siglas = new HashSet<Siglas>();
+            this.Origenes = new HashSet<Origenes>();
         }
     
         public int id { get; set; }
@@ -27,8 +27,8 @@ namespace PruebaGitHub
     
         public virtual Ciudades Ciudades { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Origenes> Origenes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Siglas> Siglas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Origenes> Origenes { get; set; }
     }
 }

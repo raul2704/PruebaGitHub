@@ -61,11 +61,12 @@ namespace PruebaGitHub
             this.btnagregar = new System.Windows.Forms.ToolStripButton();
             this.btneditar = new System.Windows.Forms.ToolStripButton();
             this.btneliminar = new System.Windows.Forms.ToolStripButton();
+            this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Origen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -186,7 +187,8 @@ namespace PruebaGitHub
             this.noVueloDataGridViewTextBoxColumn,
             this.fechaVueloDataGridViewTextBoxColumn,
             this.ciudadDataGridViewTextBoxColumn,
-            this.noGuiaDataGridViewTextBoxColumn});
+            this.noGuiaDataGridViewTextBoxColumn,
+            this.Origen});
             this.dgpickiu.DataSource = this.cgestionarpickiuBindingSource;
             this.dgpickiu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgpickiu.Location = new System.Drawing.Point(0, 0);
@@ -241,7 +243,6 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -372,6 +373,10 @@ namespace PruebaGitHub
             this.btneliminar.Size = new System.Drawing.Size(70, 22);
             this.btneliminar.Text = "Eliminar";
             // 
+            // cgestionarpickiuBindingSource
+            // 
+            this.cgestionarpickiuBindingSource.DataSource = typeof(PruebaGitHub.cgestionarpickiu);
+            // 
             // noVueloDataGridViewTextBoxColumn
             // 
             this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
@@ -400,9 +405,12 @@ namespace PruebaGitHub
             this.noGuiaDataGridViewTextBoxColumn.Name = "noGuiaDataGridViewTextBoxColumn";
             this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // cgestionarpickiuBindingSource
+            // Origen
             // 
-            this.cgestionarpickiuBindingSource.DataSource = typeof(PruebaGitHub.cgestionarpickiu);
+            this.Origen.DataPropertyName = "Origen";
+            this.Origen.HeaderText = "Origen";
+            this.Origen.Name = "Origen";
+            this.Origen.ReadOnly = true;
             // 
             // ControlPickiu
             // 
@@ -466,10 +474,11 @@ namespace PruebaGitHub
         private System.Windows.Forms.ToolStripButton btneditar;
         private System.Windows.Forms.ToolStripButton btneliminar;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.BindingSource cgestionarpickiuBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn noVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noGuiaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource cgestionarpickiuBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Origen;
     }
 }

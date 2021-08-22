@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBPickiuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="DBPickiuModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Ciudades">
           <Key>
             <PropertyRef Name="id" />
@@ -54,7 +54,7 @@
           <Property Name="idPais" Type="int" Nullable="false" />
           <Property Name="idCiudad" Type="int" Nullable="false" />
           <Property Name="idFinca" Type="int" Nullable="false" />
-          <Property Name="idSigla" Type="int" Nullable="false" />
+          <Property Name="idSigla" Type="int" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
@@ -183,7 +183,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Origenes_Siglas">
-          <End Role="Siglas" Type="Self.Siglas" Multiplicity="1">
+          <End Role="Siglas" Type="Self.Siglas" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
           <End Role="Origenes" Type="Self.Origenes" Multiplicity="*" />
@@ -328,8 +328,7 @@
             <End Role="Vuelos" EntitySet="Vuelos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBPickiuModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -342,8 +341,8 @@
           <Property Name="IdPais" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Paises" Relationship="Self.FK_Ciudades_Paises" FromRole="Ciudades" ToRole="Paises" />
           <NavigationProperty Name="Fincas" Relationship="Self.FK_Fincas_Ciudades" FromRole="Ciudades" ToRole="Fincas" />
-          <NavigationProperty Name="Origenes" Relationship="Self.FK_Origenes_Ciudades" FromRole="Ciudades" ToRole="Origenes" />
           <NavigationProperty Name="Vuelos" Relationship="Self.FK_Vuelos_Ciudades" FromRole="Ciudades" ToRole="Vuelos" />
+          <NavigationProperty Name="Origenes" Relationship="DBPickiuModel.FK_Origenes_Ciudades" FromRole="Ciudades" ToRole="Origenes" />
         </EntityType>
         <EntityType Name="Clientes">
           <Key>
@@ -363,8 +362,8 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IdCiudad" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Ciudades" Relationship="Self.FK_Fincas_Ciudades" FromRole="Fincas" ToRole="Ciudades" />
-          <NavigationProperty Name="Origenes" Relationship="Self.FK_Origenes_Fincas" FromRole="Fincas" ToRole="Origenes" />
           <NavigationProperty Name="Siglas" Relationship="Self.FK_Siglas_Fincas" FromRole="Fincas" ToRole="Siglas" />
+          <NavigationProperty Name="Origenes" Relationship="DBPickiuModel.FK_Origenes_Fincas" FromRole="Fincas" ToRole="Origenes" />
         </EntityType>
         <EntityType Name="Flores">
           <Key>
@@ -386,21 +385,6 @@
           <NavigationProperty Name="Vuelos" Relationship="Self.FK_Guias_Vuelos" FromRole="Guias" ToRole="Vuelos" />
           <NavigationProperty Name="Pickiu" Relationship="Self.FK_Pickiu_Guias" FromRole="Guias" ToRole="Pickiu" />
         </EntityType>
-        <EntityType Name="Origenes">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="idPais" Type="Int32" Nullable="false" />
-          <Property Name="idCiudad" Type="Int32" Nullable="false" />
-          <Property Name="idFinca" Type="Int32" Nullable="false" />
-          <Property Name="idSigla" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Ciudades" Relationship="Self.FK_Origenes_Ciudades" FromRole="Origenes" ToRole="Ciudades" />
-          <NavigationProperty Name="Fincas" Relationship="Self.FK_Origenes_Fincas" FromRole="Origenes" ToRole="Fincas" />
-          <NavigationProperty Name="Paises" Relationship="Self.FK_Origenes_Paises" FromRole="Origenes" ToRole="Paises" />
-          <NavigationProperty Name="Siglas" Relationship="Self.FK_Origenes_Siglas" FromRole="Origenes" ToRole="Siglas" />
-          <NavigationProperty Name="Pickiu" Relationship="Self.FK_Pickiu_Origenes" FromRole="Origenes" ToRole="Pickiu" />
-        </EntityType>
         <EntityType Name="Paises">
           <Key>
             <PropertyRef Name="ID" />
@@ -408,7 +392,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Ciudades" Relationship="Self.FK_Ciudades_Paises" FromRole="Paises" ToRole="Ciudades" />
-          <NavigationProperty Name="Origenes" Relationship="Self.FK_Origenes_Paises" FromRole="Paises" ToRole="Origenes" />
+          <NavigationProperty Name="Origenes" Relationship="DBPickiuModel.FK_Origenes_Paises" FromRole="Paises" ToRole="Origenes" />
         </EntityType>
         <EntityType Name="Pickiu">
           <Key>
@@ -421,7 +405,7 @@
           <Property Name="idOrigen" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Flores" Relationship="Self.FK_Pickiu_Flores" FromRole="Pickiu" ToRole="Flores" />
           <NavigationProperty Name="Guias" Relationship="Self.FK_Pickiu_Guias" FromRole="Pickiu" ToRole="Guias" />
-          <NavigationProperty Name="Origenes" Relationship="Self.FK_Pickiu_Origenes" FromRole="Pickiu" ToRole="Origenes" />
+          <NavigationProperty Name="Origenes" Relationship="DBPickiuModel.FK_Pickiu_Origenes" FromRole="Pickiu" ToRole="Origenes" />
         </EntityType>
         <EntityType Name="Siglas">
           <Key>
@@ -431,7 +415,7 @@
           <Property Name="Sigla" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="idFinca" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Fincas" Relationship="Self.FK_Siglas_Fincas" FromRole="Siglas" ToRole="Fincas" />
-          <NavigationProperty Name="Origenes" Relationship="Self.FK_Origenes_Siglas" FromRole="Siglas" ToRole="Origenes" />
+          <NavigationProperty Name="Origenes" Relationship="DBPickiuModel.FK_Origenes_Siglas" FromRole="Siglas" ToRole="Origenes" />
         </EntityType>
         <EntityType Name="Vuelos">
           <Key>
@@ -472,18 +456,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Origenes_Ciudades">
-          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
-          <End Role="Origenes" Type="Self.Origenes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Ciudades">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Origenes">
-              <PropertyRef Name="idCiudad" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Vuelos_Ciudades">
           <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
           <End Role="Vuelos" Type="Self.Vuelos" Multiplicity="*" />
@@ -507,18 +479,6 @@
             </Principal>
             <Dependent Role="Guias">
               <PropertyRef Name="idCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Origenes_Fincas">
-          <End Role="Fincas" Type="Self.Fincas" Multiplicity="1" />
-          <End Role="Origenes" Type="Self.Origenes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Fincas">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Origenes">
-              <PropertyRef Name="idFinca" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -578,53 +538,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Origenes_Paises">
-          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
-          <End Role="Origenes" Type="Self.Origenes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Paises">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Origenes">
-              <PropertyRef Name="idPais" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Origenes_Siglas">
-          <End Role="Siglas" Type="Self.Siglas" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Origenes" Type="Self.Origenes" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Siglas">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Origenes">
-              <PropertyRef Name="idSigla" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Pickiu_Origenes">
-          <End Role="Origenes" Type="Self.Origenes" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="Pickiu" Type="Self.Pickiu" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Origenes">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Pickiu">
-              <PropertyRef Name="idOrigen" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="DBPickiuEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Ciudades" EntityType="Self.Ciudades" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" />
           <EntitySet Name="Fincas" EntityType="Self.Fincas" />
           <EntitySet Name="Flores" EntityType="Self.Flores" />
           <EntitySet Name="Guias" EntityType="Self.Guias" />
-          <EntitySet Name="Origenes" EntityType="Self.Origenes" />
           <EntitySet Name="Paises" EntityType="Self.Paises" />
           <EntitySet Name="Pickiu" EntityType="Self.Pickiu" />
           <EntitySet Name="Siglas" EntityType="Self.Siglas" />
@@ -637,10 +556,6 @@
             <End Role="Ciudades" EntitySet="Ciudades" />
             <End Role="Fincas" EntitySet="Fincas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Origenes_Ciudades" Association="Self.FK_Origenes_Ciudades">
-            <End Role="Ciudades" EntitySet="Ciudades" />
-            <End Role="Origenes" EntitySet="Origenes" />
-          </AssociationSet>
           <AssociationSet Name="FK_Vuelos_Ciudades" Association="Self.FK_Vuelos_Ciudades">
             <End Role="Ciudades" EntitySet="Ciudades" />
             <End Role="Vuelos" EntitySet="Vuelos" />
@@ -648,10 +563,6 @@
           <AssociationSet Name="FK_Guias_Clientes" Association="Self.FK_Guias_Clientes">
             <End Role="Clientes" EntitySet="Clientes" />
             <End Role="Guias" EntitySet="Guias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Origenes_Fincas" Association="Self.FK_Origenes_Fincas">
-            <End Role="Fincas" EntitySet="Fincas" />
-            <End Role="Origenes" EntitySet="Origenes" />
           </AssociationSet>
           <AssociationSet Name="FK_Siglas_Fincas" Association="Self.FK_Siglas_Fincas">
             <End Role="Fincas" EntitySet="Fincas" />
@@ -669,19 +580,107 @@
             <End Role="Guias" EntitySet="Guias" />
             <End Role="Pickiu" EntitySet="Pickiu" />
           </AssociationSet>
-          <AssociationSet Name="FK_Origenes_Paises" Association="Self.FK_Origenes_Paises">
+          <EntitySet Name="Origenes" EntityType="DBPickiuModel.Origenes" />
+          <AssociationSet Name="FK_Origenes_Ciudades" Association="DBPickiuModel.FK_Origenes_Ciudades">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Origenes" EntitySet="Origenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Origenes_Fincas" Association="DBPickiuModel.FK_Origenes_Fincas">
+            <End Role="Fincas" EntitySet="Fincas" />
+            <End Role="Origenes" EntitySet="Origenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Origenes_Paises" Association="DBPickiuModel.FK_Origenes_Paises">
             <End Role="Paises" EntitySet="Paises" />
             <End Role="Origenes" EntitySet="Origenes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Origenes_Siglas" Association="Self.FK_Origenes_Siglas">
+          <AssociationSet Name="FK_Origenes_Siglas" Association="DBPickiuModel.FK_Origenes_Siglas">
             <End Role="Siglas" EntitySet="Siglas" />
             <End Role="Origenes" EntitySet="Origenes" />
           </AssociationSet>
-          <AssociationSet Name="FK_Pickiu_Origenes" Association="Self.FK_Pickiu_Origenes">
+          <AssociationSet Name="FK_Pickiu_Origenes" Association="DBPickiuModel.FK_Pickiu_Origenes">
             <End Role="Origenes" EntitySet="Origenes" />
             <End Role="Pickiu" EntitySet="Pickiu" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Origenes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPais" Type="Int32" Nullable="false" />
+          <Property Name="idCiudad" Type="Int32" Nullable="false" />
+          <Property Name="idFinca" Type="Int32" Nullable="false" />
+          <Property Name="idSigla" Type="Int32" />
+          <NavigationProperty Name="Ciudades" Relationship="DBPickiuModel.FK_Origenes_Ciudades" FromRole="Origenes" ToRole="Ciudades" />
+          <NavigationProperty Name="Fincas" Relationship="DBPickiuModel.FK_Origenes_Fincas" FromRole="Origenes" ToRole="Fincas" />
+          <NavigationProperty Name="Paises" Relationship="DBPickiuModel.FK_Origenes_Paises" FromRole="Origenes" ToRole="Paises" />
+          <NavigationProperty Name="Siglas" Relationship="DBPickiuModel.FK_Origenes_Siglas" FromRole="Origenes" ToRole="Siglas" />
+          <NavigationProperty Name="Pickiu" Relationship="DBPickiuModel.FK_Pickiu_Origenes" FromRole="Origenes" ToRole="Pickiu" />
+        </EntityType>
+        <Association Name="FK_Origenes_Ciudades">
+          <End Type="DBPickiuModel.Ciudades" Role="Ciudades" Multiplicity="1" />
+          <End Type="DBPickiuModel.Origenes" Role="Origenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Origenes">
+              <PropertyRef Name="idCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Origenes_Fincas">
+          <End Type="DBPickiuModel.Fincas" Role="Fincas" Multiplicity="1" />
+          <End Type="DBPickiuModel.Origenes" Role="Origenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fincas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Origenes">
+              <PropertyRef Name="idFinca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Origenes_Paises">
+          <End Type="DBPickiuModel.Paises" Role="Paises" Multiplicity="1" />
+          <End Type="DBPickiuModel.Origenes" Role="Origenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Origenes">
+              <PropertyRef Name="idPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Origenes_Siglas">
+          <End Type="DBPickiuModel.Siglas" Role="Siglas" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DBPickiuModel.Origenes" Role="Origenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Siglas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Origenes">
+              <PropertyRef Name="idSigla" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Pickiu_Origenes">
+          <End Type="DBPickiuModel.Origenes" Role="Origenes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="DBPickiuModel.Pickiu" Role="Pickiu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Origenes">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Pickiu">
+              <PropertyRef Name="idOrigen" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -734,17 +733,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Origenes">
-            <EntityTypeMapping TypeName="DBPickiuModel.Origenes">
-              <MappingFragment StoreEntitySet="Origenes">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="idPais" ColumnName="idPais" />
-                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
-                <ScalarProperty Name="idFinca" ColumnName="idFinca" />
-                <ScalarProperty Name="idSigla" ColumnName="idSigla" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Paises">
             <EntityTypeMapping TypeName="DBPickiuModel.Paises">
               <MappingFragment StoreEntitySet="Paises">
@@ -780,6 +768,17 @@
                 <ScalarProperty Name="NoVuelo" ColumnName="NoVuelo" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
                 <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Origenes">
+            <EntityTypeMapping TypeName="DBPickiuModel.Origenes">
+              <MappingFragment StoreEntitySet="Origenes">
+                <ScalarProperty Name="idSigla" ColumnName="idSigla" />
+                <ScalarProperty Name="idFinca" ColumnName="idFinca" />
+                <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
+                <ScalarProperty Name="idPais" ColumnName="idPais" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

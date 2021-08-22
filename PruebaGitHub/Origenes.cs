@@ -24,7 +24,7 @@ namespace PruebaGitHub
         public int idPais { get; set; }
         public int idCiudad { get; set; }
         public int idFinca { get; set; }
-        public int idSigla { get; set; }
+        public Nullable<int> idSigla { get; set; }
     
         public virtual Ciudades Ciudades { get; set; }
         public virtual Fincas Fincas { get; set; }

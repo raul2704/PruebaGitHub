@@ -10,24 +10,24 @@
         <EntityTypeShape EntityType="DBPickiuModel.Fincas" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Flores" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Guias" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBPickiuModel.Origenes" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Paises" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Pickiu" Width="1.5" PointX="12" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBPickiuModel.Siglas" Width="1.5" PointX="7.5" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPickiuModel.Siglas" Width="1.5" PointX="7.5" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Vuelos" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
         <AssociationConnector Association="DBPickiuModel.FK_Ciudades_Paises" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Fincas_Ciudades" ManuallyRouted="false" />
-        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Ciudades" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Vuelos_Ciudades" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Guias_Clientes" ManuallyRouted="false" />
-        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Fincas" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Siglas_Fincas" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Pickiu_Flores" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Guias_Vuelos" ManuallyRouted="false" />
         <AssociationConnector Association="DBPickiuModel.FK_Pickiu_Guias" ManuallyRouted="false" />
-        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Paises" ManuallyRouted="false" />
-        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Siglas" ManuallyRouted="false" />
-        <AssociationConnector Association="DBPickiuModel.FK_Pickiu_Origenes" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBPickiuModel.Origenes" Width="1.5" PointX="9.75" PointY="4.875" />
+        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Ciudades" />
+        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Fincas" />
+        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Paises" />
+        <AssociationConnector Association="DBPickiuModel.FK_Origenes_Siglas" />
+        <AssociationConnector Association="DBPickiuModel.FK_Pickiu_Origenes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

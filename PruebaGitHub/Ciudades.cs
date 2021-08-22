@@ -18,8 +18,8 @@ namespace PruebaGitHub
         public Ciudades()
         {
             this.Fincas = new HashSet<Fincas>();
-            this.Origenes = new HashSet<Origenes>();
             this.Vuelos = new HashSet<Vuelos>();
+            this.Origenes = new HashSet<Origenes>();
         }
     
         public int id { get; set; }
@@ -30,8 +30,8 @@ namespace PruebaGitHub
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Fincas> Fincas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Origenes> Origenes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Vuelos> Vuelos { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Origenes> Origenes { get; set; }
     }
 }
