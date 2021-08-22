@@ -1,17 +1,17 @@
 ﻿
 namespace PruebaGitHub
 {
-    partial class fgestionarpickiu
+    partial class ControlPickiu
     {
-        /// <summary>
-        /// Required designer variable.
+        /// <summary> 
+        /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
+        /// <summary> 
+        /// Limpiar los recursos que se estén usando.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">true si los recursos administrados se deben desechar; false en caso contrario.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -21,21 +21,16 @@ namespace PruebaGitHub
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Código generado por el Diseñador de componentes
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// <summary> 
+        /// Método necesario para admitir el Diseñador. No se puede modificar
+        /// el contenido de este método con el editor de código.
         /// </summary>
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fgestionarpickiu));
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnagregar = new System.Windows.Forms.ToolStripButton();
-            this.btneditar = new System.Windows.Forms.ToolStripButton();
-            this.btneliminar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlPickiu));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -69,7 +64,11 @@ namespace PruebaGitHub
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labresumen = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStrip1.SuspendLayout();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btnagregar = new System.Windows.Forms.ToolStripButton();
+            this.btneditar = new System.Windows.Forms.ToolStripButton();
+            this.btneliminar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -78,53 +77,12 @@ namespace PruebaGitHub
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnagregar,
-            this.btneditar,
-            this.btneliminar,
-            this.toolStripSeparator1});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1028, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btnagregar
-            // 
-            this.btnagregar.Image = ((System.Drawing.Image)(resources.GetObject("btnagregar.Image")));
-            this.btnagregar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnagregar.Name = "btnagregar";
-            this.btnagregar.Size = new System.Drawing.Size(69, 22);
-            this.btnagregar.Text = "Agregar";
-            // 
-            // btneditar
-            // 
-            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
-            this.btneditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btneditar.Name = "btneditar";
-            this.btneditar.Size = new System.Drawing.Size(57, 22);
-            this.btneditar.Text = "Editar";
-            // 
-            // btneliminar
-            // 
-            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
-            this.btneliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btneliminar.Name = "btneliminar";
-            this.btneliminar.Size = new System.Drawing.Size(70, 22);
-            this.btneliminar.Text = "Eliminar";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Left;
             this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -146,9 +104,9 @@ namespace PruebaGitHub
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView1);
             this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
-            this.splitContainer1.Size = new System.Drawing.Size(1028, 403);
-            this.splitContainer1.SplitterDistance = 29;
-            this.splitContainer1.TabIndex = 1;
+            this.splitContainer1.Size = new System.Drawing.Size(1028, 485);
+            this.splitContainer1.SplitterDistance = 34;
+            this.splitContainer1.TabIndex = 2;
             // 
             // comboBox4
             // 
@@ -238,7 +196,7 @@ namespace PruebaGitHub
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGridView1.Size = new System.Drawing.Size(1028, 345);
+            this.dataGridView1.Size = new System.Drawing.Size(1028, 422);
             this.dataGridView1.TabIndex = 0;
             // 
             // novuelo
@@ -314,7 +272,7 @@ namespace PruebaGitHub
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(0, 345);
+            this.bindingNavigator1.Location = new System.Drawing.Point(0, 422);
             this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
             this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
@@ -418,10 +376,10 @@ namespace PruebaGitHub
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labresumen});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 510);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1028, 22);
-            this.statusStrip1.TabIndex = 2;
+            this.statusStrip1.Size = new System.Drawing.Size(1076, 22);
+            this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // labresumen
@@ -430,18 +388,57 @@ namespace PruebaGitHub
             this.labresumen.Size = new System.Drawing.Size(59, 17);
             this.labresumen.Text = "Resumen:";
             // 
-            // fgestionarpickiu
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnagregar,
+            this.btneditar,
+            this.btneliminar,
+            this.toolStripSeparator1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1076, 25);
+            this.toolStrip1.TabIndex = 4;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btnagregar
+            // 
+            this.btnagregar.Image = ((System.Drawing.Image)(resources.GetObject("btnagregar.Image")));
+            this.btnagregar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnagregar.Name = "btnagregar";
+            this.btnagregar.Size = new System.Drawing.Size(69, 22);
+            this.btnagregar.Text = "Agregar";
+            // 
+            // btneditar
+            // 
+            this.btneditar.Image = ((System.Drawing.Image)(resources.GetObject("btneditar.Image")));
+            this.btneditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btneditar.Name = "btneditar";
+            this.btneditar.Size = new System.Drawing.Size(57, 22);
+            this.btneditar.Text = "Editar";
+            // 
+            // btneliminar
+            // 
+            this.btneliminar.Image = ((System.Drawing.Image)(resources.GetObject("btneliminar.Image")));
+            this.btneliminar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(70, 22);
+            this.btneliminar.Text = "Eliminar";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // ControlPickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 450);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
-            this.Name = "fgestionarpickiu";
-            this.Text = "Gestionar Pickiu";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
+            this.Name = "ControlPickiu";
+            this.Size = new System.Drawing.Size(1076, 532);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -454,6 +451,8 @@ namespace PruebaGitHub
             this.bindingNavigator1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,11 +460,7 @@ namespace PruebaGitHub
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripButton btnagregar;
-        private System.Windows.Forms.ToolStripButton btneliminar;
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
@@ -475,6 +470,7 @@ namespace PruebaGitHub
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn novuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechavuelo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colciudad;
@@ -483,8 +479,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewTextBoxColumn colflor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
         private System.Windows.Forms.DataGridViewTextBoxColumn colorigen;
-        private System.Windows.Forms.ToolStripButton btneditar;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -499,6 +493,10 @@ namespace PruebaGitHub
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel labresumen;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton btnagregar;
+        private System.Windows.Forms.ToolStripButton btneditar;
+        private System.Windows.Forms.ToolStripButton btneliminar;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
-

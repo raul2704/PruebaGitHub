@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PruebaGitHub
 {
-    public partial class fgestionarpickiu : Form
+    public partial class ControlPickiu : UserControl
     {
-        public fgestionarpickiu()
+        public ControlPickiu()
         {
             InitializeComponent();
         }

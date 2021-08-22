@@ -55,8 +55,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cgestionarpickiu.cs" />
     <Compile Include="Ciudades.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ControlOrigenes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlOrigenes.Designer.cs">
+      <DependentUpon>ControlOrigenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPickiu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlPickiu.Designer.cs">
+      <DependentUpon>ControlPickiu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="db_pickiu.cs" />
+    <Compile Include="FPanelPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FPanelPrincipal.Designer.cs">
+      <DependentUpon>FPanelPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="t_origenes.cs" />
     <Compile Include="Clientes.cs">
@@ -67,12 +87,6 @@
     </Compile>
     <Compile Include="feditarpickiu.Designer.cs">
       <DependentUpon>feditarpickiu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="fgestionarpickiu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="fgestionarpickiu.Designer.cs">
-      <DependentUpon>fgestionarpickiu.cs</DependentUpon>
     </Compile>
     <Compile Include="Fincas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -115,11 +129,17 @@
     <Compile Include="Vuelos.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlOrigenes.resx">
+      <DependentUpon>ControlOrigenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPickiu.resx">
+      <DependentUpon>ControlPickiu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="feditarpickiu.resx">
       <DependentUpon>feditarpickiu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fgestionarpickiu.resx">
-      <DependentUpon>fgestionarpickiu.cs</DependentUpon>
+    <EmbeddedResource Include="FPanelPrincipal.resx">
+      <DependentUpon>FPanelPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
