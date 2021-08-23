@@ -13,7 +13,7 @@ namespace PruebaGitHub
        {
             get 
             {
-                string sigla = Siglas != null ? Siglas.Sigla : "";
+                string sigla =Siglas != null ? Siglas.Sigla : "";
                 return Paises.Nombre + "/ " + Ciudades.Nombre + "/ " + Fincas.Nombre+"/ "+sigla; 
             }  
        }           

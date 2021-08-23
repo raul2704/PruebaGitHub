@@ -12,6 +12,7 @@ namespace PruebaGitHub
 {
     public partial class ControlPickiu : UserControl
     {
+        string NoVuelo = "";
         public ControlPickiu()
         {
             InitializeComponent();
@@ -30,8 +31,21 @@ namespace PruebaGitHub
         {
             using(DBPickiuEntities db=new DBPickiuEntities())
             {
-                dgpickiu.DataSource = db.Lista_Pickiu();
+                List<cgestionarpickiu> milista= db.Lista_Pickiu();
+                if (NoVuelo != "")
+                    milista = milista.Where(l => l.NoVuelo.Equals(NoVuelo)).ToList();
+                //Otros filtros
+                dgpickiu.DataSource = milista;
             }
+        }
+
+        private void textBox2_Validated(object sender, EventArgs e)
+        {
+            if (textBox2.Text != "")
+            {
+                NoVuelo = textBox2.Text;
+                Cargar_Datos();
+            }                
         }
     }
 }
