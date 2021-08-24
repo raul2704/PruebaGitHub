@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="ciudadesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>754, 19</value>
+  </metadata>
   <metadata name="Origen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -208,9 +211,9 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPYyAV+DRtL/Vt3DGF4f9/RqgQ8QCsuWnHfzAm
-        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7lP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
+        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7ZP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
         7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/oA1LQDbggpmkHAvmnHX6jNYEO8W3aYQaWIA8jO9mva7gcV
-        JhIwMAAAOrPW3pf8oGUAAAAASUVORK5CYII=
+        JhIwMAAADFfWwLR0acAAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btneliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -223,4 +226,7 @@
         SUVORK5CYII=
 </value>
   </data>
+  <metadata name="vuelosBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>589, 19</value>
+  </metadata>
 </root>

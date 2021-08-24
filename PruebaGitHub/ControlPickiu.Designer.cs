@@ -32,15 +32,16 @@ namespace PruebaGitHub
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlPickiu));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbciudad = new System.Windows.Forms.ComboBox();
+            this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dgpickiu = new System.Windows.Forms.DataGridView();
             this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,16 +68,19 @@ namespace PruebaGitHub
             this.btneditar = new System.Windows.Forms.ToolStripButton();
             this.btneliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.vuelosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vuelosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -88,15 +92,15 @@ namespace PruebaGitHub
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox4);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox3);
             this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.cbciudad);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
             this.splitContainer1.Panel1.Controls.Add(this.textBox5);
             this.splitContainer1.Panel1.Controls.Add(this.textBox4);
             this.splitContainer1.Panel1.Controls.Add(this.textBox2);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
             // 
             // splitContainer1.Panel2
@@ -106,6 +110,15 @@ namespace PruebaGitHub
             this.splitContainer1.Size = new System.Drawing.Size(1028, 485);
             this.splitContainer1.SplitterDistance = 34;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(122, 6);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
+            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker1.Validated += new System.EventHandler(this.dateTimePicker1_Validated);
             // 
             // comboBox4
             // 
@@ -131,13 +144,21 @@ namespace PruebaGitHub
             this.comboBox2.Size = new System.Drawing.Size(144, 21);
             this.comboBox2.TabIndex = 2;
             // 
-            // comboBox1
+            // cbciudad
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(224, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cbciudad.DataSource = this.ciudadesBindingSource;
+            this.cbciudad.DisplayMember = "Nombre";
+            this.cbciudad.FormattingEnabled = true;
+            this.cbciudad.Location = new System.Drawing.Point(226, 5);
+            this.cbciudad.Name = "cbciudad";
+            this.cbciudad.Size = new System.Drawing.Size(121, 21);
+            this.cbciudad.TabIndex = 2;
+            this.cbciudad.ValueMember = "id";
+            this.cbciudad.SelectedIndexChanged += new System.EventHandler(this.cbciudad_SelectedIndexChanged);
+            // 
+            // ciudadesBindingSource
+            // 
+            this.ciudadesBindingSource.DataSource = typeof(PruebaGitHub.Ciudades);
             // 
             // label1
             // 
@@ -169,13 +190,6 @@ namespace PruebaGitHub
             this.textBox2.Size = new System.Drawing.Size(74, 20);
             this.textBox2.TabIndex = 0;
             this.textBox2.Validated += new System.EventHandler(this.textBox2_Validated);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(123, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(97, 20);
-            this.textBox1.TabIndex = 0;
             // 
             // dgpickiu
             // 
@@ -414,6 +428,10 @@ namespace PruebaGitHub
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // vuelosBindingSource
+            // 
+            this.vuelosBindingSource.DataSource = typeof(PruebaGitHub.Vuelos);
+            // 
             // ControlPickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -430,6 +448,7 @@ namespace PruebaGitHub
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
@@ -439,6 +458,7 @@ namespace PruebaGitHub
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vuelosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,12 +470,11 @@ namespace PruebaGitHub
         private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbciudad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dgpickiu;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -482,5 +501,8 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noGuiaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Origen;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.BindingSource ciudadesBindingSource;
+        private System.Windows.Forms.BindingSource vuelosBindingSource;
     }
 }

@@ -160,6 +160,16 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\cgestionarpickiu.datasource" />
+    <None Include="Properties\DataSources\Ciudades.datasource" />
+    <None Include="Properties\DataSources\Clientes.datasource" />
+    <None Include="Properties\DataSources\Fincas.datasource" />
+    <None Include="Properties\DataSources\Flores.datasource" />
+    <None Include="Properties\DataSources\Guias.datasource" />
+    <None Include="Properties\DataSources\Origenes.datasource" />
+    <None Include="Properties\DataSources\Paises.datasource" />
+    <None Include="Properties\DataSources\Pickiu.datasource" />
+    <None Include="Properties\DataSources\Siglas.datasource" />
+    <None Include="Properties\DataSources\Vuelos.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
