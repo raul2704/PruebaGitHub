@@ -38,7 +38,7 @@ namespace PruebaGitHub
         {
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-               var lstorigenes = db.Origenes.ToList();
+               var lstorigenes = db.Origenes.Where(o=>o.idCiudad==aCiudad.id).ToList();
                lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
                cborigen.DataSource = lstorigenes.OrderBy(c => c.Origen).ToList();
                aOrigen = lstorigenes.Find(o=>o.id==0);
@@ -62,8 +62,11 @@ namespace PruebaGitHub
 
         private void Cargar_Datos()
         {
+            dgpickiu.AutoGenerateColumns = false;
+            
             using(DBPickiuEntities db=new DBPickiuEntities())
             {
+                origenesBindingSource1.DataSource = db.Origenes.ToList();
                 List<cgestionarpickiu> milista= db.Lista_Pickiu();
                 milista = milista.Where(c => c.FechaVuelo.ToShortDateString().Equals(aFechaVuelo.ToShortDateString())).ToList();
                 
@@ -72,7 +75,7 @@ namespace PruebaGitHub
                 if (aCiudad!=null && aCiudad.id != 0)                  
                     milista = milista.Where(l => l.Ciudad.Equals(aCiudad.Nombre)).ToList();
                 if (aOrigen!=null && aOrigen.id != 0)
-                    milista = milista.Where(l => l.Origen.id == aOrigen.id).ToList();
+                    milista = milista.Where(l => l.Origen == aOrigen.id).ToList();
 
                 dgpickiu.DataSource = milista;
             }
@@ -90,6 +93,7 @@ namespace PruebaGitHub
         private void cbciudad_SelectedIndexChanged(object sender, EventArgs e)
         {
             aCiudad =cbciudad.SelectedItem as Ciudades;
+            Cargar_Origenes();
             Cargar_Datos();
         }
 

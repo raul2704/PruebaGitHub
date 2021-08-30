@@ -12,6 +12,6 @@ namespace PruebaGitHub
         public DateTime FechaVuelo { get; set; }
         public string Ciudad { get; set; }
         public string NoGuia { get; set; }
-        public Origenes Origen { get; set; }
+        public int Origen { get; set; }
     }
 }

@@ -13,22 +13,22 @@ namespace PruebaGitHub
         {
             set
             { 
-                aorigen = value;
+               aorigen = value;
             }                
             get
             {
-                string pais = idPais != 0 ? Paises.Nombre + "/ " : "";
-                string ciudad = idCiudad != 0 ? Ciudades.Nombre + "/ " : "";
-                string finca = idFinca != 0 ? Fincas.Nombre + "/ " : "";
-                string sigla = Siglas != null ? Siglas.Sigla : "";
-                return aorigen+pais+ciudad+finca+sigla;
+                using (DBPickiuEntities db = new DBPickiuEntities())
+                {
+                    string pais = idPais != 0 ? db.Paises.Find(idPais).Nombre + "/ " : "";
+                    string ciudad = idCiudad != 0 ?db.Ciudades.Find(idCiudad).Nombre + "/ " : "";
+                    string finca = idFinca != 0 ?db.Fincas.Find(idFinca).Nombre + "/ " : "";
+                    string sigla = idSigla != null ? db.Siglas.Find(idSigla).Sigla : "";
+
+                    return aorigen + pais + ciudad + finca + sigla;
+                }
             }
         }
 
-        public override string ToString()
-        {
-            return aorigen;
-        }
         //Al fin aqui estoy yo
         //public string GetOrigen
         //{
