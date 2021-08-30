@@ -12,9 +12,10 @@ namespace PruebaGitHub
 {
     public partial class ControlPickiu : UserControl
     {
-        string aNoVuelo = "";
+        string aNoVuelo = "";        
         DateTime aFechaVuelo = DateTime.Today;
         Ciudades aCiudad = null;
+        Origenes aOrigen=null;
 
         public ControlPickiu()
         {
@@ -29,8 +30,23 @@ namespace PruebaGitHub
         private void ControlPickiu_Load(object sender, EventArgs e)
         {
            Cargar_Ciudades();
+           Cargar_Origenes();
            Cargar_Datos();
         }
+
+        private void Cargar_Origenes()
+        {
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+               var lstorigenes = db.Origenes.ToList();
+               lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
+               cborigen.DataSource = lstorigenes.OrderBy(c => c.Origen).ToList();
+               aOrigen = lstorigenes.Find(o=>o.id==0);
+               if(aOrigen!=null)
+                 cborigen.SelectedItem = aOrigen;
+            }
+        }
+
         private void Cargar_Ciudades()
         {
           using (DBPickiuEntities db = new DBPickiuEntities())
@@ -53,8 +69,10 @@ namespace PruebaGitHub
                 
                 if (aNoVuelo != "")
                     milista = milista.Where(l => l.NoVuelo.Equals(aNoVuelo)).ToList();
-                if (aCiudad.id != 0)
+                if (aCiudad!=null && aCiudad.id != 0)                  
                     milista = milista.Where(l => l.Ciudad.Equals(aCiudad.Nombre)).ToList();
+                if (aOrigen!=null && aOrigen.id != 0)
+                    milista = milista.Where(l => l.Origen.id == aOrigen.id).ToList();
 
                 dgpickiu.DataSource = milista;
             }
@@ -78,6 +96,12 @@ namespace PruebaGitHub
         private void dateTimePicker1_Validated(object sender, EventArgs e)
         {
             aFechaVuelo = dateTimePicker1.Value;
+            Cargar_Datos();
+        }
+
+        private void cborigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            aOrigen = cborigen.SelectedItem as Origenes;
             Cargar_Datos();
         }
     }
