@@ -35,15 +35,17 @@ namespace PruebaGitHub
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.cborigen = new System.Windows.Forms.ComboBox();
             this.origenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cbciudad = new System.Windows.Forms.ComboBox();
             this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgpickiu = new System.Windows.Forms.DataGridView();
+            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Origen = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.origenesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
@@ -66,11 +68,6 @@ namespace PruebaGitHub
             this.btneliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.vuelosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Origen = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -89,7 +86,7 @@ namespace PruebaGitHub
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -98,11 +95,8 @@ namespace PruebaGitHub
             // 
             this.splitContainer1.Panel1.Controls.Add(this.dateTimePicker1);
             this.splitContainer1.Panel1.Controls.Add(this.cborigen);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.comboBox2);
             this.splitContainer1.Panel1.Controls.Add(this.cbciudad);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox5);
             this.splitContainer1.Panel1.Controls.Add(this.textBox4);
             this.splitContainer1.Panel1.Controls.Add(this.textBox2);
             this.splitContainer1.Panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel1_Paint);
@@ -111,7 +105,7 @@ namespace PruebaGitHub
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgpickiu);
             this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
-            this.splitContainer1.Size = new System.Drawing.Size(1028, 485);
+            this.splitContainer1.Size = new System.Drawing.Size(679, 485);
             this.splitContainer1.SplitterDistance = 34;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -129,7 +123,7 @@ namespace PruebaGitHub
             this.cborigen.DataSource = this.origenesBindingSource;
             this.cborigen.DisplayMember = "Origen";
             this.cborigen.FormattingEnabled = true;
-            this.cborigen.Location = new System.Drawing.Point(777, 5);
+            this.cborigen.Location = new System.Drawing.Point(430, 6);
             this.cborigen.Name = "cborigen";
             this.cborigen.Size = new System.Drawing.Size(222, 21);
             this.cborigen.TabIndex = 2;
@@ -139,22 +133,6 @@ namespace PruebaGitHub
             // origenesBindingSource
             // 
             this.origenesBindingSource.DataSource = typeof(PruebaGitHub.Origenes);
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(577, 5);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(146, 21);
-            this.comboBox3.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(428, 5);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(144, 21);
-            this.comboBox2.TabIndex = 2;
             // 
             // cbciudad
             // 
@@ -180,13 +158,6 @@ namespace PruebaGitHub
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Filtrar:";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(728, 6);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(45, 20);
-            this.textBox5.TabIndex = 0;
             // 
             // textBox4
             // 
@@ -222,8 +193,50 @@ namespace PruebaGitHub
             this.dgpickiu.Name = "dgpickiu";
             this.dgpickiu.ReadOnly = true;
             this.dgpickiu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgpickiu.Size = new System.Drawing.Size(1028, 422);
+            this.dgpickiu.Size = new System.Drawing.Size(679, 422);
             this.dgpickiu.TabIndex = 0;
+            // 
+            // noVueloDataGridViewTextBoxColumn
+            // 
+            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
+            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noVueloDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // fechaVueloDataGridViewTextBoxColumn
+            // 
+            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
+            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ciudadDataGridViewTextBoxColumn
+            // 
+            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
+            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ciudadDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // noGuiaDataGridViewTextBoxColumn
+            // 
+            this.noGuiaDataGridViewTextBoxColumn.DataPropertyName = "NoGuia";
+            this.noGuiaDataGridViewTextBoxColumn.HeaderText = "NoGuia";
+            this.noGuiaDataGridViewTextBoxColumn.Name = "noGuiaDataGridViewTextBoxColumn";
+            this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noGuiaDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // Origen
+            // 
+            this.Origen.DataPropertyName = "Origen";
+            this.Origen.DataSource = this.origenesBindingSource1;
+            this.Origen.DisplayMember = "Origen";
+            this.Origen.HeaderText = "Origen";
+            this.Origen.Name = "Origen";
+            this.Origen.ReadOnly = true;
+            this.Origen.ValueMember = "id";
+            this.Origen.Width = 220;
             // 
             // origenesBindingSource1
             // 
@@ -258,7 +271,7 @@ namespace PruebaGitHub
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(1028, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(679, 25);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -316,6 +329,7 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -356,7 +370,7 @@ namespace PruebaGitHub
             this.labresumen});
             this.statusStrip1.Location = new System.Drawing.Point(0, 510);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1033, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(679, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -375,7 +389,7 @@ namespace PruebaGitHub
             this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1033, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(679, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -412,44 +426,6 @@ namespace PruebaGitHub
             // 
             this.vuelosBindingSource.DataSource = typeof(PruebaGitHub.Vuelos);
             // 
-            // noVueloDataGridViewTextBoxColumn
-            // 
-            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
-            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaVueloDataGridViewTextBoxColumn
-            // 
-            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
-            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ciudadDataGridViewTextBoxColumn
-            // 
-            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
-            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // noGuiaDataGridViewTextBoxColumn
-            // 
-            this.noGuiaDataGridViewTextBoxColumn.DataPropertyName = "NoGuia";
-            this.noGuiaDataGridViewTextBoxColumn.HeaderText = "NoGuia";
-            this.noGuiaDataGridViewTextBoxColumn.Name = "noGuiaDataGridViewTextBoxColumn";
-            this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Origen
-            // 
-            this.Origen.DataPropertyName = "Origen";
-            this.Origen.DataSource = this.origenesBindingSource1;
-            this.Origen.DisplayMember = "Origen";
-            this.Origen.HeaderText = "Origen";
-            this.Origen.Name = "Origen";
-            this.Origen.ReadOnly = true;
-            this.Origen.ValueMember = "id";
-            // 
             // ControlPickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -458,7 +434,7 @@ namespace PruebaGitHub
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ControlPickiu";
-            this.Size = new System.Drawing.Size(1033, 532);
+            this.Size = new System.Drawing.Size(679, 532);
             this.Load += new System.EventHandler(this.ControlPickiu_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -488,11 +464,8 @@ namespace PruebaGitHub
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ComboBox cborigen;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cbciudad;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DataGridView dgpickiu;

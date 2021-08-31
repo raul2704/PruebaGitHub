@@ -13,5 +13,18 @@ namespace PruebaGitHub
         public string Ciudad { get; set; }
         public string NoGuia { get; set; }
         public int Origen { get; set; }
+        public string GetOrigen
+        {
+            get 
+            {
+                using (DBPickiuEntities db = new DBPickiuEntities())
+                {
+                    Origenes temporigen = db.Origenes.FirstOrDefault(o=>o.id==Origen);
+                    if (temporigen != null)
+                        return temporigen.Origen;
+                    return "";
+                } 
+            }
+        }
     }
 }

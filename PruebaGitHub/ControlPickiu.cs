@@ -31,14 +31,13 @@ namespace PruebaGitHub
         {
            Cargar_Ciudades();
            Cargar_Origenes();
-           Cargar_Datos();
+           //Cargar_Datos();
         }
 
         private void Cargar_Origenes()
         {
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-               
                var lstorigenes = db.Origenes.ToList();
                lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
                 if (aCiudad.id != 0)

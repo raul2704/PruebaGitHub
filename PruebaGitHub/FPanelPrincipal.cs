@@ -26,8 +26,7 @@ namespace PruebaGitHub
 
         private void btngestionarorigen_Click(object sender, EventArgs e)
         {
-
-            Mostrar_Gestionar_Origen();
+          Mostrar_Gestionar_Origen();
         }
 
         private void Mostrar_Gestionar_Origen()
@@ -37,18 +36,17 @@ namespace PruebaGitHub
             corigenes = panelcontenedor.Controls.OfType<ControlOrigenes>().FirstOrDefault();
             if (corigenes == null)
             {
-                corigenes = new ControlOrigenes();
-                corigenes.Dock = DockStyle.Left;
-                panelcontenedor.Controls.Add(corigenes);
+              corigenes = new ControlOrigenes();
+              corigenes.Dock = DockStyle.Left;
+              panelcontenedor.Controls.Add(corigenes);
             }
             corigenes.Show();
-            corigenes.BringToFront();
-            
+            corigenes.BringToFront();            
         }
 
         private void btngestionarpickiu_Click(object sender, EventArgs e)
         {
-            Mostra_Gestionar_Pickiu();
+          Mostra_Gestionar_Pickiu();
         }
 
         private void Mostra_Gestionar_Pickiu()
