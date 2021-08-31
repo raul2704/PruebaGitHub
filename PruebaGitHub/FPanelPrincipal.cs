@@ -59,7 +59,7 @@ namespace PruebaGitHub
             if (cpickiu == null)
             {
                 cpickiu = new ControlPickiu();
-                cpickiu.Dock = DockStyle.Left;
+                cpickiu.Dock = DockStyle.Fill;
                 panelcontenedor.Controls.Add(cpickiu);
             }
             cpickiu.Show(); 

@@ -30,10 +30,10 @@ namespace PruebaGitHub
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panelcontenedor = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btngestionarorigen = new System.Windows.Forms.Button();
             this.btngestionarpickiu = new System.Windows.Forms.Button();
+            this.panelcontenedor = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -54,17 +54,9 @@ namespace PruebaGitHub
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelcontenedor);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 450);
-            this.splitContainer1.SplitterDistance = 193;
+            this.splitContainer1.Size = new System.Drawing.Size(1165, 494);
+            this.splitContainer1.SplitterDistance = 143;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // panelcontenedor
-            // 
-            this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelcontenedor.Location = new System.Drawing.Point(0, 0);
-            this.panelcontenedor.Name = "panelcontenedor";
-            this.panelcontenedor.Size = new System.Drawing.Size(603, 450);
-            this.panelcontenedor.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -72,12 +64,12 @@ namespace PruebaGitHub
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.btngestionarorigen, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btngestionarpickiu, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(11, 53);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(179, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(139, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btngestionarorigen
@@ -100,11 +92,20 @@ namespace PruebaGitHub
             this.btngestionarpickiu.UseVisualStyleBackColor = true;
             this.btngestionarpickiu.Click += new System.EventHandler(this.btngestionarpickiu_Click);
             // 
+            // panelcontenedor
+            // 
+            this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelcontenedor.Location = new System.Drawing.Point(0, 0);
+            this.panelcontenedor.Name = "panelcontenedor";
+            this.panelcontenedor.Size = new System.Drawing.Size(1018, 494);
+            this.panelcontenedor.TabIndex = 0;
+            // 
             // FPanelPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1165, 494);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FPanelPrincipal";
             this.Text = "FPanelPrincipal";

@@ -38,8 +38,11 @@ namespace PruebaGitHub
         {
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-               var lstorigenes = db.Origenes.Where(o=>o.idCiudad==aCiudad.id).ToList();
+               
+               var lstorigenes = db.Origenes.ToList();
                lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
+                if (aCiudad.id != 0)
+                    lstorigenes = lstorigenes.Where(o => o.idCiudad == aCiudad.id).ToList();
                cborigen.DataSource = lstorigenes.OrderBy(c => c.Origen).ToList();
                aOrigen = lstorigenes.Find(o=>o.id==0);
                if(aOrigen!=null)
