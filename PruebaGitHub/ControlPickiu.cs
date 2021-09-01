@@ -40,8 +40,8 @@ namespace PruebaGitHub
             {
                var lstorigenes = db.Origenes.ToList();
                lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
-                if (aCiudad.id != 0)
-                    lstorigenes = lstorigenes.Where(o => o.idCiudad == aCiudad.id).ToList();
+               if (aCiudad.id != 0)
+                   lstorigenes = lstorigenes.Where(o => o.idCiudad == aCiudad.id).ToList();
                cborigen.DataSource = lstorigenes.OrderBy(c => c.Origen).ToList();
                aOrigen = lstorigenes.Find(o=>o.id==0);
                if(aOrigen!=null)
@@ -70,7 +70,7 @@ namespace PruebaGitHub
             {
                 origenesBindingSource1.DataSource = db.Origenes.ToList();
                 List<cgestionarpickiu> milista= db.Lista_Pickiu();
-                milista = milista.Where(c => c.FechaVuelo.ToShortDateString().Equals(aFechaVuelo.ToShortDateString())).ToList();
+                milista = milista.Where(c => c.FechaVuelo >= aFechaVuelo).ToList();
                 
                 if (aNoVuelo != "")
                     milista = milista.Where(l => l.NoVuelo.Equals(aNoVuelo)).ToList();
@@ -109,6 +109,12 @@ namespace PruebaGitHub
         {
             aOrigen = cborigen.SelectedItem as Origenes;
             Cargar_Datos();
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            feditarpickiu formedit = new feditarpickiu();
+            formedit.ShowDialog();
         }
     }
 }

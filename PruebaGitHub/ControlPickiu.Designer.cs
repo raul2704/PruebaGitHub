@@ -45,8 +45,7 @@ namespace PruebaGitHub
             this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Origen = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.origenesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.GetOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -60,6 +59,7 @@ namespace PruebaGitHub
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.origenesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labresumen = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
@@ -75,10 +75,10 @@ namespace PruebaGitHub
             ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vuelosBindingSource)).BeginInit();
@@ -186,7 +186,7 @@ namespace PruebaGitHub
             this.fechaVueloDataGridViewTextBoxColumn,
             this.ciudadDataGridViewTextBoxColumn,
             this.noGuiaDataGridViewTextBoxColumn,
-            this.Origen});
+            this.GetOrigen});
             this.dgpickiu.DataSource = this.cgestionarpickiuBindingSource;
             this.dgpickiu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgpickiu.Location = new System.Drawing.Point(0, 0);
@@ -227,20 +227,13 @@ namespace PruebaGitHub
             this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
             this.noGuiaDataGridViewTextBoxColumn.Width = 80;
             // 
-            // Origen
+            // GetOrigen
             // 
-            this.Origen.DataPropertyName = "Origen";
-            this.Origen.DataSource = this.origenesBindingSource1;
-            this.Origen.DisplayMember = "Origen";
-            this.Origen.HeaderText = "Origen";
-            this.Origen.Name = "Origen";
-            this.Origen.ReadOnly = true;
-            this.Origen.ValueMember = "id";
-            this.Origen.Width = 220;
-            // 
-            // origenesBindingSource1
-            // 
-            this.origenesBindingSource1.DataSource = typeof(PruebaGitHub.Origenes);
+            this.GetOrigen.DataPropertyName = "GetOrigen";
+            this.GetOrigen.HeaderText = "GetOrigen";
+            this.GetOrigen.Name = "GetOrigen";
+            this.GetOrigen.ReadOnly = true;
+            this.GetOrigen.Width = 210;
             // 
             // cgestionarpickiuBindingSource
             // 
@@ -364,6 +357,10 @@ namespace PruebaGitHub
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             this.bindingNavigatorSeparator2.Visible = false;
             // 
+            // origenesBindingSource1
+            // 
+            this.origenesBindingSource1.DataSource = typeof(PruebaGitHub.Origenes);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -400,6 +397,7 @@ namespace PruebaGitHub
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(69, 22);
             this.btnagregar.Text = "Agregar";
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // btneditar
             // 
@@ -445,11 +443,11 @@ namespace PruebaGitHub
             ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -498,6 +496,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn noGuiaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Origen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GetOrigen;
     }
 }

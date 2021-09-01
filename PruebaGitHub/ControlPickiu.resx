@@ -123,11 +123,8 @@
   <metadata name="ciudadesBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>754, 19</value>
   </metadata>
-  <metadata name="Origen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="GetOrigen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </metadata>
-  <metadata name="origenesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 58</value>
   </metadata>
   <metadata name="cgestionarpickiuBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>370, 19</value>
@@ -200,6 +197,9 @@
         8l/FYwIYQ4UGBWBgAAC+0b+zuQxOnAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="origenesBindingSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 58</value>
+  </metadata>
   <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>150, 16</value>
   </metadata>
@@ -217,9 +217,9 @@
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACfSURBVDhPYyAV+DRtL/Vt3DGF4f9/RqgQ8QCsuWnHfzAm
-        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7OP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
+        xxCfxm09cAOA2Kdp22SoFH4AstmnaUc9mA0zpH7WP6ArcsAK8AFkZ8MM8W3a3k2yZnRDCAJsmsly9kjR
         7Nu405p8zU3bw+zr93P4Nm5vIFkzCPjUb/oA1LQDbggpmkHAvmnHX6jNYEO8W3aYQaWIA8jO9mva7gcV
-        JhIwMAAAccDWXLPcEhkAAAAASUVORK5CYII=
+        JhIwMAAAUtjWSCVDjr8AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="btneliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

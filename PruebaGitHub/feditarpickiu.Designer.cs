@@ -40,7 +40,8 @@ namespace PruebaGitHub
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbciudades = new System.Windows.Forms.ComboBox();
+            this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.colnoguia = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -87,6 +88,7 @@ namespace PruebaGitHub
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numvuelo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -147,7 +149,7 @@ namespace PruebaGitHub
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cbciudades, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -204,16 +206,20 @@ namespace PruebaGitHub
             this.dateTimePicker1.Size = new System.Drawing.Size(101, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
-            // comboBox1
+            // cbciudades
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Pinar del Río",
-            "La Habana"});
-            this.comboBox1.Location = new System.Drawing.Point(78, 53);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 21);
-            this.comboBox1.TabIndex = 3;
+            this.cbciudades.DataSource = this.ciudadesBindingSource;
+            this.cbciudades.DisplayMember = "Nombre";
+            this.cbciudades.FormattingEnabled = true;
+            this.cbciudades.Location = new System.Drawing.Point(78, 53);
+            this.cbciudades.Name = "cbciudades";
+            this.cbciudades.Size = new System.Drawing.Size(172, 21);
+            this.cbciudades.TabIndex = 3;
+            this.cbciudades.ValueMember = "id";
+            // 
+            // ciudadesBindingSource
+            // 
+            this.ciudadesBindingSource.DataSource = typeof(PruebaGitHub.Ciudades);
             // 
             // splitContainer2
             // 
@@ -601,7 +607,9 @@ namespace PruebaGitHub
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Name = "feditarpickiu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Editar Pickiu";
+            this.Load += new System.EventHandler(this.feditarpickiu_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -612,6 +620,7 @@ namespace PruebaGitHub
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numvuelo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -647,7 +656,7 @@ namespace PruebaGitHub
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbciudades;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -686,5 +695,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewComboBoxColumn colflor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
         private System.Windows.Forms.DataGridViewComboBoxColumn colorigen;
+        private System.Windows.Forms.BindingSource ciudadesBindingSource;
     }
 }
