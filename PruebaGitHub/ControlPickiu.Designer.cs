@@ -195,6 +195,7 @@ namespace PruebaGitHub
             this.dgpickiu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgpickiu.Size = new System.Drawing.Size(679, 422);
             this.dgpickiu.TabIndex = 0;
+            this.dgpickiu.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgpickiu_RowEnter);
             // 
             // noVueloDataGridViewTextBoxColumn
             // 
@@ -406,6 +407,7 @@ namespace PruebaGitHub
             this.btneditar.Name = "btneditar";
             this.btneditar.Size = new System.Drawing.Size(57, 22);
             this.btneditar.Text = "Editar";
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // btneliminar
             // 

@@ -18,29 +18,42 @@ namespace PruebaGitHub
         public feditarpickiu(Vuelos pVuelo=null)
         {
            InitializeComponent();
-           aVuelo = pVuelo;
-           ListaCiudades = new List<Ciudades>();
+            ListaCiudades = new List<Ciudades>();
+            if (pVuelo != null)
+            {
+                using (DBPickiuEntities db = new DBPickiuEntities())
+                {
+                    aVuelo = db.Vuelos.FirstOrDefault(v => v.NoVuelo == pVuelo.NoVuelo && v.Fecha == pVuelo.Fecha);
+                }
+            }
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
         {
-           
+             
         }
 
         private void feditarpickiu_Load(object sender, EventArgs e)
         {
             Cargar_Ciudades();
+            Cargar_Datos();                    
+        }
+
+        private void Cargar_Datos()
+        {
             if (aVuelo != null)
             {
-
+               aCiudad = ListaCiudades.FirstOrDefault(c=>c.id==aVuelo.idCiudad);
+               txtnumerovuelo.Text = aVuelo.NoVuelo;
+               dtfecha.Value = aVuelo.Fecha;
             }
             else
             {
-                aCiudad = ListaCiudades.FirstOrDefault();
-                if (aCiudad != null)
-                    cbciudades.SelectedItem = aCiudad;
+               aCiudad = ListaCiudades.FirstOrDefault();               
             }
-                    
+
+            if (aCiudad != null)
+                cbciudades.SelectedItem = aCiudad;
         }
 
         private void Cargar_Ciudades()

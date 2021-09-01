@@ -36,10 +36,9 @@ namespace PruebaGitHub
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.numvuelo = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtfecha = new System.Windows.Forms.DateTimePicker();
             this.cbciudades = new System.Windows.Forms.ComboBox();
             this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
@@ -81,13 +80,13 @@ namespace PruebaGitHub
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.txtnumerovuelo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numvuelo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -145,11 +144,11 @@ namespace PruebaGitHub
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.36625F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.63374F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.numvuelo, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dtfecha, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbciudades, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtnumerovuelo, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
@@ -169,14 +168,6 @@ namespace PruebaGitHub
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "No. Vuelo:";
-            // 
-            // numvuelo
-            // 
-            this.numvuelo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.numvuelo.Location = new System.Drawing.Point(78, 3);
-            this.numvuelo.Name = "numvuelo";
-            this.numvuelo.Size = new System.Drawing.Size(101, 20);
-            this.numvuelo.TabIndex = 1;
             // 
             // label2
             // 
@@ -198,13 +189,13 @@ namespace PruebaGitHub
             this.label3.TabIndex = 0;
             this.label3.Text = "Ciudad:";
             // 
-            // dateTimePicker1
+            // dtfecha
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(78, 28);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(101, 20);
-            this.dateTimePicker1.TabIndex = 2;
+            this.dtfecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtfecha.Location = new System.Drawing.Point(78, 28);
+            this.dtfecha.Name = "dtfecha";
+            this.dtfecha.Size = new System.Drawing.Size(101, 20);
+            this.dtfecha.TabIndex = 2;
             // 
             // cbciudades
             // 
@@ -598,6 +589,13 @@ namespace PruebaGitHub
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // txtnumerovuelo
+            // 
+            this.txtnumerovuelo.Location = new System.Drawing.Point(78, 3);
+            this.txtnumerovuelo.Name = "txtnumerovuelo";
+            this.txtnumerovuelo.Size = new System.Drawing.Size(100, 20);
+            this.txtnumerovuelo.TabIndex = 4;
+            // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,7 +617,6 @@ namespace PruebaGitHub
             this.toolStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numvuelo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel1.PerformLayout();
@@ -652,10 +649,9 @@ namespace PruebaGitHub
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numvuelo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtfecha;
         private System.Windows.Forms.ComboBox cbciudades;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
@@ -696,5 +692,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
         private System.Windows.Forms.DataGridViewComboBoxColumn colorigen;
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
+        private System.Windows.Forms.TextBox txtnumerovuelo;
     }
 }
