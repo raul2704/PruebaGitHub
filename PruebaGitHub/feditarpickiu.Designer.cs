@@ -62,9 +62,6 @@ namespace PruebaGitHub
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.dgdistribucion = new System.Windows.Forms.DataGridView();
-            this.colflor = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cborigen = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.origenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
@@ -83,6 +80,10 @@ namespace PruebaGitHub
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.floresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cbflores = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cborigen = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -105,6 +106,7 @@ namespace PruebaGitHub
             this.bindingNavigator2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.floresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -359,6 +361,7 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -413,7 +416,7 @@ namespace PruebaGitHub
             // 
             this.dgdistribucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgdistribucion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colflor,
+            this.cbflores,
             this.colcant,
             this.cborigen});
             this.dgdistribucion.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -421,27 +424,6 @@ namespace PruebaGitHub
             this.dgdistribucion.Name = "dgdistribucion";
             this.dgdistribucion.Size = new System.Drawing.Size(431, 131);
             this.dgdistribucion.TabIndex = 2;
-            // 
-            // colflor
-            // 
-            this.colflor.HeaderText = "Flor";
-            this.colflor.Name = "colflor";
-            this.colflor.Width = 150;
-            // 
-            // colcant
-            // 
-            this.colcant.HeaderText = "Cant";
-            this.colcant.Name = "colcant";
-            this.colcant.Width = 55;
-            // 
-            // cborigen
-            // 
-            this.cborigen.DataSource = this.origenesBindingSource;
-            this.cborigen.DisplayMember = "OrigenCorto";
-            this.cborigen.HeaderText = "Origen";
-            this.cborigen.Name = "cborigen";
-            this.cborigen.ValueMember = "id";
-            this.cborigen.Width = 150;
             // 
             // origenesBindingSource
             // 
@@ -530,6 +512,7 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem1.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem1.AutoSize = false;
+            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
             this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem1.Text = "0";
@@ -613,6 +596,34 @@ namespace PruebaGitHub
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // floresBindingSource
+            // 
+            this.floresBindingSource.DataSource = typeof(PruebaGitHub.Flores);
+            // 
+            // cbflores
+            // 
+            this.cbflores.DataSource = this.floresBindingSource;
+            this.cbflores.DisplayMember = "Nombre";
+            this.cbflores.HeaderText = "Flor";
+            this.cbflores.Name = "cbflores";
+            this.cbflores.ValueMember = "id";
+            this.cbflores.Width = 150;
+            // 
+            // colcant
+            // 
+            this.colcant.HeaderText = "Cant";
+            this.colcant.Name = "colcant";
+            this.colcant.Width = 55;
+            // 
+            // cborigen
+            // 
+            this.cborigen.DataSource = this.origenesBindingSource;
+            this.cborigen.DisplayMember = "OrigenCorto";
+            this.cborigen.HeaderText = "Origen";
+            this.cborigen.Name = "cborigen";
+            this.cborigen.ValueMember = "id";
+            this.cborigen.Width = 150;
+            // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -656,6 +667,7 @@ namespace PruebaGitHub
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.floresBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -711,7 +723,8 @@ namespace PruebaGitHub
         private System.Windows.Forms.BindingSource clientesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbcliente;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colflor;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cbflores;
+        private System.Windows.Forms.BindingSource floresBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
         private System.Windows.Forms.DataGridViewComboBoxColumn cborigen;
     }

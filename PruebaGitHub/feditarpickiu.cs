@@ -16,9 +16,11 @@ namespace PruebaGitHub
         Ciudades aCiudad = null;
         Origenes aOrigen=null;
         Clientes aCliente=null;
+        Flores aFlor = null;
         List<Clientes> ListaClientes = null;
         List<Ciudades> ListaCiudades = null;
         List<Origenes> ListaOrigenes = null;
+        List<Flores> ListaFlores = null;
         
 
         public feditarpickiu(Vuelos pVuelo=null)
@@ -41,10 +43,22 @@ namespace PruebaGitHub
 
         private void feditarpickiu_Load(object sender, EventArgs e)
         {
-            Cargar_Ciudades();
-            Cargar_Origenes();
+            Cargar_Ciudades();           
             Cargar_Clientes();
+            Cargar_Flores();
             Cargar_Datos();                    
+        }
+
+        private void Cargar_Flores()
+        {
+            ListaFlores = null;
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+                ListaFlores = db.Flores.OrderBy(c => c.Nombre).ToList();
+                cbflores.DataSource = ListaFlores;
+                if (ListaFlores.Count != 0)
+                    aFlor = ListaFlores.FirstOrDefault();
+            }
         }
 
         private void Cargar_Clientes()
@@ -77,25 +91,19 @@ namespace PruebaGitHub
         private void Cargar_Datos()
         {
             if (aVuelo != null)
-            {
-               
+            {               
                txtnumerovuelo.Text = aVuelo.NoVuelo;
                dtfecha.Value = aVuelo.Fecha;
                aCiudad = aVuelo.Ciudades;
                 if (aCiudad != null)
-                {
-                    cbciudades.SelectedItem = aCiudad;
-                    Cargar_Origenes();
-                }
-
+                   cbciudades.SelectedItem = aCiudad;
             }
             else
             {
                
                
             }
-
-            
+            Cargar_Origenes();
         }
 
         private void Cargar_Ciudades()
