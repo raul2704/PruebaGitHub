@@ -41,10 +41,12 @@ namespace PruebaGitHub
             this.dtfecha = new System.Windows.Forms.DateTimePicker();
             this.cbciudades = new System.Windows.Forms.ComboBox();
             this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtnumerovuelo = new System.Windows.Forms.TextBox();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgguias = new System.Windows.Forms.DataGridView();
             this.colnoguia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colcliente = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cbcliente = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
@@ -59,10 +61,11 @@ namespace PruebaGitHub
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgdistribucion = new System.Windows.Forms.DataGridView();
             this.colflor = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colorigen = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.cborigen = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.origenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
@@ -80,7 +83,6 @@ namespace PruebaGitHub
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtnumerovuelo = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -92,11 +94,13 @@ namespace PruebaGitHub
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgguias)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             this.toolStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgdistribucion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             this.toolStrip3.SuspendLayout();
@@ -207,10 +211,18 @@ namespace PruebaGitHub
             this.cbciudades.Size = new System.Drawing.Size(172, 21);
             this.cbciudades.TabIndex = 3;
             this.cbciudades.ValueMember = "id";
+            this.cbciudades.SelectedIndexChanged += new System.EventHandler(this.cbciudades_SelectedIndexChanged);
             // 
             // ciudadesBindingSource
             // 
             this.ciudadesBindingSource.DataSource = typeof(PruebaGitHub.Ciudades);
+            // 
+            // txtnumerovuelo
+            // 
+            this.txtnumerovuelo.Location = new System.Drawing.Point(78, 3);
+            this.txtnumerovuelo.Name = "txtnumerovuelo";
+            this.txtnumerovuelo.Size = new System.Drawing.Size(100, 20);
+            this.txtnumerovuelo.TabIndex = 4;
             // 
             // splitContainer2
             // 
@@ -221,41 +233,48 @@ namespace PruebaGitHub
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer2.Panel1.Controls.Add(this.dgguias);
             this.splitContainer2.Panel1.Controls.Add(this.bindingNavigator1);
             this.splitContainer2.Panel1.Controls.Add(this.toolStrip2);
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.dataGridView2);
+            this.splitContainer2.Panel2.Controls.Add(this.dgdistribucion);
             this.splitContainer2.Panel2.Controls.Add(this.bindingNavigator2);
             this.splitContainer2.Panel2.Controls.Add(this.toolStrip3);
             this.splitContainer2.Size = new System.Drawing.Size(431, 369);
             this.splitContainer2.SplitterDistance = 184;
             this.splitContainer2.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgguias
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgguias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgguias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colnoguia,
-            this.colcliente});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(431, 134);
-            this.dataGridView1.TabIndex = 2;
+            this.cbcliente});
+            this.dgguias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgguias.Location = new System.Drawing.Point(0, 25);
+            this.dgguias.Name = "dgguias";
+            this.dgguias.Size = new System.Drawing.Size(431, 134);
+            this.dgguias.TabIndex = 2;
             // 
             // colnoguia
             // 
             this.colnoguia.HeaderText = "No Guía";
             this.colnoguia.Name = "colnoguia";
             // 
-            // colcliente
+            // cbcliente
             // 
-            this.colcliente.HeaderText = "Cliente";
-            this.colcliente.Name = "colcliente";
-            this.colcliente.Width = 250;
+            this.cbcliente.DataSource = this.clientesBindingSource;
+            this.cbcliente.DisplayMember = "Nombre";
+            this.cbcliente.HeaderText = "Cliente";
+            this.cbcliente.Name = "cbcliente";
+            this.cbcliente.ValueMember = "id";
+            this.cbcliente.Width = 250;
+            // 
+            // clientesBindingSource
+            // 
+            this.clientesBindingSource.DataSource = typeof(PruebaGitHub.Clientes);
             // 
             // bindingNavigator1
             // 
@@ -340,7 +359,6 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -391,18 +409,18 @@ namespace PruebaGitHub
             this.toolStripLabel2.Size = new System.Drawing.Size(136, 22);
             this.toolStripLabel2.Text = "Lista de Guías por Vuelo:";
             // 
-            // dataGridView2
+            // dgdistribucion
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgdistribucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgdistribucion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colflor,
             this.colcant,
-            this.colorigen});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 25);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(431, 131);
-            this.dataGridView2.TabIndex = 2;
+            this.cborigen});
+            this.dgdistribucion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgdistribucion.Location = new System.Drawing.Point(0, 25);
+            this.dgdistribucion.Name = "dgdistribucion";
+            this.dgdistribucion.Size = new System.Drawing.Size(431, 131);
+            this.dgdistribucion.TabIndex = 2;
             // 
             // colflor
             // 
@@ -416,11 +434,18 @@ namespace PruebaGitHub
             this.colcant.Name = "colcant";
             this.colcant.Width = 55;
             // 
-            // colorigen
+            // cborigen
             // 
-            this.colorigen.HeaderText = "Origen";
-            this.colorigen.Name = "colorigen";
-            this.colorigen.Width = 150;
+            this.cborigen.DataSource = this.origenesBindingSource;
+            this.cborigen.DisplayMember = "OrigenCorto";
+            this.cborigen.HeaderText = "Origen";
+            this.cborigen.Name = "cborigen";
+            this.cborigen.ValueMember = "id";
+            this.cborigen.Width = 150;
+            // 
+            // origenesBindingSource
+            // 
+            this.origenesBindingSource.DataSource = typeof(PruebaGitHub.Origenes);
             // 
             // bindingNavigator2
             // 
@@ -505,7 +530,6 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem1.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem1.AutoSize = false;
-            this.bindingNavigatorPositionItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem1";
             this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem1.Text = "0";
@@ -589,13 +613,6 @@ namespace PruebaGitHub
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // txtnumerovuelo
-            // 
-            this.txtnumerovuelo.Location = new System.Drawing.Point(78, 3);
-            this.txtnumerovuelo.Name = "txtnumerovuelo";
-            this.txtnumerovuelo.Size = new System.Drawing.Size(100, 20);
-            this.txtnumerovuelo.TabIndex = 4;
-            // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -624,13 +641,15 @@ namespace PruebaGitHub
             this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgguias)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             this.toolStrip2.ResumeLayout(false);
             this.toolStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgdistribucion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
             this.bindingNavigator2.ResumeLayout(false);
             this.bindingNavigator2.PerformLayout();
@@ -669,8 +688,8 @@ namespace PruebaGitHub
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStrip toolStrip3;
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgguias;
+        private System.Windows.Forms.DataGridView dgdistribucion;
         private System.Windows.Forms.BindingNavigator bindingNavigator2;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
@@ -686,12 +705,14 @@ namespace PruebaGitHub
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colcliente;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colflor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
-        private System.Windows.Forms.DataGridViewComboBoxColumn colorigen;
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.TextBox txtnumerovuelo;
+        private System.Windows.Forms.BindingSource origenesBindingSource;
+        private System.Windows.Forms.BindingSource clientesBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cbcliente;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colflor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cborigen;
     }
 }

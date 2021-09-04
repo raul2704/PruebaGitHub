@@ -29,6 +29,19 @@ namespace PruebaGitHub
             }
         }
 
+        public string OrigenCorto
+        {
+            get
+            {
+                using (DBPickiuEntities db = new DBPickiuEntities())
+                {
+                    string finca = idFinca != 0 ? db.Fincas.Find(idFinca).Nombre + "/ " : "";
+                    string sigla = idSigla != null ? db.Siglas.Find(idSigla).Sigla : "";
+                    return finca + sigla;
+                }
+            }
+        }
+
         //Al fin aqui estoy yo
         //public string GetOrigen
         //{

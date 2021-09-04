@@ -115,6 +115,7 @@ namespace PruebaGitHub
         private void btnagregar_Click(object sender, EventArgs e)
         {
             feditarpickiu formedit = new feditarpickiu();
+            formedit.Text = "";
             formedit.ShowDialog();
             Cargar_Datos();
         }
