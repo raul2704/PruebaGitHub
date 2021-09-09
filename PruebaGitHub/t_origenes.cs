@@ -13,7 +13,7 @@ namespace PruebaGitHub
         {
             set
             { 
-               aorigen = value;
+              aorigen = value;
             }                
             get
             {

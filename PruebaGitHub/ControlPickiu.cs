@@ -16,7 +16,7 @@ namespace PruebaGitHub
         DateTime aFechaVuelo = DateTime.Today;
         Ciudades aCiudad = null;
         Origenes aOrigen=null;
-        Vuelos aVuelo = null;
+        int idvuelo = 0;
 
         public ControlPickiu()
         {
@@ -122,16 +122,14 @@ namespace PruebaGitHub
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            feditarpickiu formedit = new feditarpickiu(aVuelo);
+            feditarpickiu formedit = new feditarpickiu(idvuelo);
             formedit.ShowDialog();
             Cargar_Datos();
         }
 
         private void dgpickiu_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            aVuelo = new Vuelos();            
-            aVuelo.NoVuelo = dgpickiu.Rows[e.RowIndex].Cells[0].Value.ToString();
-            aVuelo.Fecha = Convert.ToDateTime(dgpickiu.Rows[e.RowIndex].Cells[1].Value);
+           idvuelo =Convert.ToInt32(dgpickiu.Rows[e.RowIndex].Cells[0].Value);           
         }
     }
 }

@@ -41,11 +41,6 @@ namespace PruebaGitHub
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgpickiu = new System.Windows.Forms.DataGridView();
-            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GetOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -68,6 +63,12 @@ namespace PruebaGitHub
             this.btneliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.vuelosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idpk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noGuiaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GetOrigen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -182,6 +183,7 @@ namespace PruebaGitHub
             this.dgpickiu.AutoGenerateColumns = false;
             this.dgpickiu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgpickiu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idpk,
             this.noVueloDataGridViewTextBoxColumn,
             this.fechaVueloDataGridViewTextBoxColumn,
             this.ciudadDataGridViewTextBoxColumn,
@@ -196,45 +198,6 @@ namespace PruebaGitHub
             this.dgpickiu.Size = new System.Drawing.Size(679, 422);
             this.dgpickiu.TabIndex = 0;
             this.dgpickiu.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgpickiu_RowEnter);
-            // 
-            // noVueloDataGridViewTextBoxColumn
-            // 
-            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
-            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.noVueloDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // fechaVueloDataGridViewTextBoxColumn
-            // 
-            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
-            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // ciudadDataGridViewTextBoxColumn
-            // 
-            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
-            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ciudadDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // noGuiaDataGridViewTextBoxColumn
-            // 
-            this.noGuiaDataGridViewTextBoxColumn.DataPropertyName = "NoGuia";
-            this.noGuiaDataGridViewTextBoxColumn.HeaderText = "NoGuia";
-            this.noGuiaDataGridViewTextBoxColumn.Name = "noGuiaDataGridViewTextBoxColumn";
-            this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.noGuiaDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // GetOrigen
-            // 
-            this.GetOrigen.DataPropertyName = "GetOrigen";
-            this.GetOrigen.HeaderText = "GetOrigen";
-            this.GetOrigen.Name = "GetOrigen";
-            this.GetOrigen.ReadOnly = true;
-            this.GetOrigen.Width = 210;
             // 
             // cgestionarpickiuBindingSource
             // 
@@ -323,7 +286,6 @@ namespace PruebaGitHub
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -426,6 +388,53 @@ namespace PruebaGitHub
             // 
             this.vuelosBindingSource.DataSource = typeof(PruebaGitHub.Vuelos);
             // 
+            // idpk
+            // 
+            this.idpk.DataPropertyName = "idvuelo";
+            this.idpk.HeaderText = "id";
+            this.idpk.Name = "idpk";
+            this.idpk.ReadOnly = true;
+            this.idpk.Visible = false;
+            // 
+            // noVueloDataGridViewTextBoxColumn
+            // 
+            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
+            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noVueloDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // fechaVueloDataGridViewTextBoxColumn
+            // 
+            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
+            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // ciudadDataGridViewTextBoxColumn
+            // 
+            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
+            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ciudadDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // noGuiaDataGridViewTextBoxColumn
+            // 
+            this.noGuiaDataGridViewTextBoxColumn.DataPropertyName = "NoGuia";
+            this.noGuiaDataGridViewTextBoxColumn.HeaderText = "NoGuia";
+            this.noGuiaDataGridViewTextBoxColumn.Name = "noGuiaDataGridViewTextBoxColumn";
+            this.noGuiaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noGuiaDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // GetOrigen
+            // 
+            this.GetOrigen.DataPropertyName = "GetOrigen";
+            this.GetOrigen.HeaderText = "GetOrigen";
+            this.GetOrigen.Name = "GetOrigen";
+            this.GetOrigen.ReadOnly = true;
+            this.GetOrigen.Width = 210;
+            // 
             // ControlPickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -494,6 +503,7 @@ namespace PruebaGitHub
         private System.Windows.Forms.BindingSource vuelosBindingSource;
         private System.Windows.Forms.BindingSource origenesBindingSource;
         private System.Windows.Forms.BindingSource origenesBindingSource1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpk;
         private System.Windows.Forms.DataGridViewTextBoxColumn noVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;

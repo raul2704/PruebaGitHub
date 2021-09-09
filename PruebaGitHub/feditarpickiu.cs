@@ -12,28 +12,18 @@ namespace PruebaGitHub
 {
     public partial class feditarpickiu : Form
     {
+        int idvuelo = 0;
         Vuelos aVuelo = null;
         Ciudades aCiudad = null;
-        Origenes aOrigen=null;
-        Clientes aCliente=null;
-        Flores aFlor = null;
-        List<Clientes> ListaClientes = null;
+        Guias aGuia = null;                
         List<Ciudades> ListaCiudades = null;
         List<Origenes> ListaOrigenes = null;
-        List<Flores> ListaFlores = null;
-        
-
-        public feditarpickiu(Vuelos pVuelo=null)
+        List<Pickiu> ListaDistribucion = null;
+        List<Guias> ListaGuias = null;
+        public feditarpickiu(int pidvuelo=0)
         {
            InitializeComponent();
-           ListaCiudades = new List<Ciudades>();
-           if (pVuelo != null)
-           {
-               using (DBPickiuEntities db = new DBPickiuEntities())
-               {
-                   aVuelo = db.Vuelos.FirstOrDefault(v => v.NoVuelo == pVuelo.NoVuelo && v.Fecha == pVuelo.Fecha);
-               }
-           }
+            idvuelo = pidvuelo;
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
@@ -43,93 +33,103 @@ namespace PruebaGitHub
 
         private void feditarpickiu_Load(object sender, EventArgs e)
         {
-            Cargar_Ciudades();           
-            Cargar_Clientes();
-            Cargar_Flores();
-            Cargar_Datos();                    
-        }
-
-        private void Cargar_Flores()
-        {
-            ListaFlores = null;
-            using (DBPickiuEntities db = new DBPickiuEntities())
-            {
-                ListaFlores = db.Flores.OrderBy(c => c.Nombre).ToList();
-                cbflores.DataSource = ListaFlores;
-                if (ListaFlores.Count != 0)
-                    aFlor = ListaFlores.FirstOrDefault();
-            }
-        }
-
-        private void Cargar_Clientes()
-        {
-            ListaClientes = null;
-            using (DBPickiuEntities db = new DBPickiuEntities())
-            {
-                ListaClientes = db.Clientes.OrderBy(c => c.Nombre).ToList();
-                cbcliente.DataSource = ListaCiudades;
-                if (ListaClientes.Count != 0)
-                    aCliente = ListaClientes.FirstOrDefault();
-            }
-        }
-
-        private void Cargar_Origenes()
-        {
-            ListaOrigenes = null;
-            if (aCiudad != null)
-            {
-                using (DBPickiuEntities db = new DBPickiuEntities())
-                {
-                    ListaOrigenes = db.Origenes.Where(o => o.idCiudad == aCiudad.id).OrderBy(o => o.Fincas.Nombre).ToList();
-                    cborigen.DataSource = ListaOrigenes;
-                    if (ListaOrigenes.Count != 0)
-                        aOrigen = ListaOrigenes.FirstOrDefault();
-                }
-            }
+            Cargar_Ciudades();
+            Cargar_Datos();
         }
 
         private void Cargar_Datos()
         {
-            if (aVuelo != null)
-            {               
-               txtnumerovuelo.Text = aVuelo.NoVuelo;
-               dtfecha.Value = aVuelo.Fecha;
-               aCiudad = aVuelo.Ciudades;
-                if (aCiudad != null)
-                   cbciudades.SelectedItem = aCiudad;
-            }
-            else
+            using (DBPickiuEntities db = new DBPickiuEntities())
             {
-               
-               
+                ListaGuias = new List<Guias>();
+                ListaDistribucion = new List<Pickiu>();
+                if (idvuelo == 0) 
+                {
+                    aVuelo = new Vuelos { id = 0, NoVuelo = "", Fecha = DateTime.Today }; 
+                    if (aCiudad != null)
+                        aVuelo.Ciudades = aCiudad;                   
+                }
+                else
+                    aVuelo = db.Vuelos.FirstOrDefault(v => v.id == idvuelo);
+
+                Limpiar();
+                txtnumerovuelo.Text = aVuelo.NoVuelo;
+                dtfecha.Value = aVuelo.Fecha;
+                aCiudad = ListaCiudades.FirstOrDefault(c => c.id == aVuelo.idCiudad);
+                if (aCiudad != null)
+                    cbciudades.SelectedItem = aCiudad;
+                
+                Cargar_Guias();
             }
-            Cargar_Origenes();
+        }
+
+        public void Limpiar()
+        {
+            txtnumerovuelo.Text = "";
+            dtfecha.Value = DateTime.Today;
+            dgguias.DataSource = null;
+            dgdistribucion.DataSource = null;
         }
 
         private void Cargar_Ciudades()
         {
+            ListaCiudades = null;
+            aCiudad = null;
            using (DBPickiuEntities db = new DBPickiuEntities())
            {
               ListaCiudades = db.Ciudades.OrderBy(c => c.Nombre).ToList();               
               cbciudades.DataSource = ListaCiudades;
-              if(ListaCiudades.Count!=0)
+              if (ListaCiudades.Count != 0)
+              {
                  aCiudad = ListaCiudades.FirstOrDefault();
+                 if(aCiudad!=null) 
+                    cbciudades.SelectedItem = aCiudad;
+              }
            }
-        }
-
-        private void Cargar_Vuelo()
-        {
-
         }
 
         private void Cargar_Guias()
         {
+            dgguias.AutoGenerateColumns = false;
+            ListaGuias = new List<Guias>();
+            using (DBPickiuEntities db = new DBPickiuEntities()) 
+            {
+                cbCliente.DataSource = db.Clientes.ToList();
+                if (aVuelo != null)
+                {
+                    ListaGuias = db.Guias.Where(g => g.idVuelo == aVuelo.id).OrderBy(g=>g.numero).ToList();
+                    dgguias.DataSource =new BindingList<Guias>(ListaGuias);                    
+                }               
+                
+                Cargar_Distribucion(); 
+            }
+        }       
 
+        private void Cargar_Distribucion()
+        {
+            dgdistribucion.AutoGenerateColumns = false;
+            ListaDistribucion = new List<Pickiu>();
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+                cbflores.DataSource = db.Flores.ToList();
+                Cargar_Origenes();
+                if (aGuia != null)
+                {
+                    ListaDistribucion = db.Pickiu.Where(p => p.idGuia == aGuia.id).ToList();
+                    dgdistribucion.DataSource = new BindingList<Pickiu>(ListaDistribucion);
+                }
+            }
+            //using()
+                      
         }
 
-        private void Cargar_Pickiu()
-        {
-
+        private void Cargar_Origenes()
+        { 
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+                if (aCiudad != null)
+                    cborigen.DataSource = db.Origenes.Where(o => o.idCiudad == aCiudad.id).ToList();                 
+            }
         }
 
         private void cbciudades_SelectedIndexChanged(object sender, EventArgs e)
