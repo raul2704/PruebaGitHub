@@ -17,5 +17,23 @@ namespace PruebaGitHub
             }
             return lista;
         }
+
+        internal void Agregar_Vuelo(string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
+        {
+            Vuelos vuelo = new Vuelos { NoVuelo=pnumero_vuelo,Fecha=pfecha, idCiudad=pciudad.id };
+            SaveChanges();
+        }
+
+        internal void Modificar_Vuelo(int pid, string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
+        {
+            Vuelos vuelo = Vuelos.FirstOrDefault(v => v.id == pid);
+            if(vuelo!=null)
+            {
+               vuelo.NoVuelo = pnumero_vuelo;
+               vuelo.Fecha = pfecha;
+               vuelo.idCiudad= pciudad.id;
+               SaveChanges();
+            }
+        }
     }
 }

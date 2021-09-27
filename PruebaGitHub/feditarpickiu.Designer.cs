@@ -32,6 +32,7 @@ namespace PruebaGitHub
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(feditarpickiu));
             this.dgguias = new System.Windows.Forms.DataGridView();
+            this.idg = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colnoguia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCliente = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -84,8 +85,8 @@ namespace PruebaGitHub
             this.toolStrip3 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel3 = new System.Windows.Forms.ToolStripLabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnaceptar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgguias)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.guiasBindingSource)).BeginInit();
@@ -117,6 +118,7 @@ namespace PruebaGitHub
             // 
             this.dgguias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgguias.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idg,
             this.colnoguia,
             this.cbCliente});
             this.dgguias.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -124,6 +126,19 @@ namespace PruebaGitHub
             this.dgguias.Name = "dgguias";
             this.dgguias.Size = new System.Drawing.Size(431, 134);
             this.dgguias.TabIndex = 2;
+            this.dgguias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_CellContentClick);
+            this.dgguias.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_CellEndEdit);
+            this.dgguias.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgguias_DataError);
+            this.dgguias.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_RowEnter);
+            this.dgguias.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_RowValidated);
+            // 
+            // idg
+            // 
+            this.idg.DataPropertyName = "id";
+            this.idg.HeaderText = "id";
+            this.idg.Name = "idg";
+            this.idg.ReadOnly = true;
+            this.idg.Visible = false;
             // 
             // colnoguia
             // 
@@ -162,6 +177,7 @@ namespace PruebaGitHub
             this.dgdistribucion.Name = "dgdistribucion";
             this.dgdistribucion.Size = new System.Drawing.Size(431, 131);
             this.dgdistribucion.TabIndex = 2;
+            this.dgdistribucion.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgdistribucion_DataError);
             // 
             // cbflores
             // 
@@ -179,12 +195,14 @@ namespace PruebaGitHub
             // 
             // colcant
             // 
+            this.colcant.DataPropertyName = "Cantidad";
             this.colcant.HeaderText = "Cant";
             this.colcant.Name = "colcant";
             this.colcant.Width = 55;
             // 
             // cborigen
             // 
+            this.cborigen.DataPropertyName = "idOrigen";
             this.cborigen.DataSource = this.origenesBindingSource;
             this.cborigen.DisplayMember = "OrigenCorto";
             this.cborigen.HeaderText = "Origen";
@@ -293,6 +311,7 @@ namespace PruebaGitHub
             this.dtfecha.Name = "dtfecha";
             this.dtfecha.Size = new System.Drawing.Size(101, 20);
             this.dtfecha.TabIndex = 2;
+            this.dtfecha.ValueChanged += new System.EventHandler(this.dtfecha_ValueChanged);
             // 
             // cbciudades
             // 
@@ -316,6 +335,7 @@ namespace PruebaGitHub
             this.txtnumerovuelo.Name = "txtnumerovuelo";
             this.txtnumerovuelo.Size = new System.Drawing.Size(100, 20);
             this.txtnumerovuelo.TabIndex = 4;
+            this.txtnumerovuelo.TextChanged += new System.EventHandler(this.txtnumerovuelo_TextChanged);
             // 
             // splitContainer2
             // 
@@ -616,37 +636,39 @@ namespace PruebaGitHub
             this.panel1.Size = new System.Drawing.Size(431, 482);
             this.panel1.TabIndex = 2;
             // 
-            // button2
+            // btncancelar
             // 
-            this.button2.Image = global::PruebaGitHub.Properties.Resources.Cancel_16x16;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(343, 488);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Cancelar";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btncancelar.Image = global::PruebaGitHub.Properties.Resources.Cancel_16x16;
+            this.btncancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btncancelar.Location = new System.Drawing.Point(343, 488);
+            this.btncancelar.Name = "btncancelar";
+            this.btncancelar.Size = new System.Drawing.Size(75, 23);
+            this.btncancelar.TabIndex = 3;
+            this.btncancelar.Text = "Cancelar";
+            this.btncancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btncancelar.UseVisualStyleBackColor = true;
+            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click);
             // 
-            // button1
+            // btnaceptar
             // 
-            this.button1.Image = global::PruebaGitHub.Properties.Resources.apply_16x16;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(262, 488);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Aceptar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnaceptar.Image = global::PruebaGitHub.Properties.Resources.apply_16x16;
+            this.btnaceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnaceptar.Location = new System.Drawing.Point(262, 488);
+            this.btnaceptar.Name = "btnaceptar";
+            this.btnaceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnaceptar.TabIndex = 3;
+            this.btnaceptar.Text = "Aceptar";
+            this.btnaceptar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnaceptar.UseVisualStyleBackColor = true;
+            this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click);
             // 
             // feditarpickiu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 526);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnaceptar);
             this.Controls.Add(this.panel1);
             this.Name = "feditarpickiu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -731,8 +753,8 @@ namespace PruebaGitHub
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnaceptar;
+        private System.Windows.Forms.Button btncancelar;
         private System.Windows.Forms.BindingSource ciudadesBindingSource;
         private System.Windows.Forms.TextBox txtnumerovuelo;
         private System.Windows.Forms.BindingSource origenesBindingSource;
@@ -742,6 +764,7 @@ namespace PruebaGitHub
         private System.Windows.Forms.BindingSource pickiuBindingSource;
         private System.Windows.Forms.DataGridView dgguias;
         private System.Windows.Forms.DataGridView dgdistribucion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idg;
         private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbCliente;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbflores;

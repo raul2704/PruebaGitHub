@@ -78,6 +78,7 @@
     <Compile Include="FPanelPrincipal.Designer.cs">
       <DependentUpon>FPanelPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="t_Guias.cs" />
     <Compile Include="t_origenes.cs" />
     <Compile Include="Clientes.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
@@ -126,6 +127,7 @@
     <Compile Include="Siglas.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="t_Pickiu.cs" />
     <Compile Include="Vuelos.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>

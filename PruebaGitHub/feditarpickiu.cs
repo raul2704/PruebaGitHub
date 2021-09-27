@@ -23,7 +23,7 @@ namespace PruebaGitHub
         public feditarpickiu(int pidvuelo=0)
         {
            InitializeComponent();
-            idvuelo = pidvuelo;
+           idvuelo = pidvuelo;
         }
 
         private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
@@ -39,20 +39,18 @@ namespace PruebaGitHub
 
         private void Cargar_Datos()
         {
+            Limpiar();
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-                ListaGuias = new List<Guias>();
-                ListaDistribucion = new List<Pickiu>();
                 if (idvuelo == 0) 
                 {
-                    aVuelo = new Vuelos { id = 0, NoVuelo = "", Fecha = DateTime.Today }; 
-                    if (aCiudad != null)
-                        aVuelo.Ciudades = aCiudad;                   
+                   aVuelo = new Vuelos { id = 0, NoVuelo = "", Fecha = DateTime.Today }; 
+                   if (aCiudad != null)
+                      aVuelo.Ciudades = aCiudad;                   
                 }
                 else
                     aVuelo = db.Vuelos.FirstOrDefault(v => v.id == idvuelo);
-
-                Limpiar();
+                                
                 txtnumerovuelo.Text = aVuelo.NoVuelo;
                 dtfecha.Value = aVuelo.Fecha;
                 aCiudad = ListaCiudades.FirstOrDefault(c => c.id == aVuelo.idCiudad);
@@ -82,14 +80,15 @@ namespace PruebaGitHub
               if (ListaCiudades.Count != 0)
               {
                  aCiudad = ListaCiudades.FirstOrDefault();
-                 if(aCiudad!=null) 
-                    cbciudades.SelectedItem = aCiudad;
+                 //if(aCiudad!=null) 
+                 //  cbciudades.SelectedItem = aCiudad;
               }
            }
         }
 
         private void Cargar_Guias()
         {
+            aGuia = null;
             dgguias.AutoGenerateColumns = false;
             ListaGuias = new List<Guias>();
             using (DBPickiuEntities db = new DBPickiuEntities()) 
@@ -98,9 +97,11 @@ namespace PruebaGitHub
                 if (aVuelo != null)
                 {
                     ListaGuias = db.Guias.Where(g => g.idVuelo == aVuelo.id).OrderBy(g=>g.numero).ToList();
-                    dgguias.DataSource =new BindingList<Guias>(ListaGuias);                    
-                }               
-                
+                    dgguias.DataSource =new BindingList<Guias>(ListaGuias);
+                    if (ListaGuias.Count > 0)
+                        aGuia = ListaGuias.FirstOrDefault();
+                }
+
                 Cargar_Distribucion(); 
             }
         }       
@@ -119,23 +120,112 @@ namespace PruebaGitHub
                     dgdistribucion.DataSource = new BindingList<Pickiu>(ListaDistribucion);
                 }
             }
-            //using()
-                      
+            //using()                      
         }
 
         private void Cargar_Origenes()
-        { 
+        {
+            ListaOrigenes = new List<Origenes>();
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
                 if (aCiudad != null)
-                    cborigen.DataSource = db.Origenes.Where(o => o.idCiudad == aCiudad.id).ToList();                 
+                    ListaOrigenes= db.Origenes.Where(o => o.idCiudad == aCiudad.id).ToList();
+                cborigen.DataSource = ListaOrigenes;                 
             }
         }
 
         private void cbciudades_SelectedIndexChanged(object sender, EventArgs e)
         {
             aCiudad = cbciudades.SelectedItem as Ciudades;
+            if(aVuelo!=null && aCiudad!=null)
+               aVuelo.Ciudades = aCiudad;
             Cargar_Origenes();
+        }
+
+        private void dgguias_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int idg =Convert.ToInt32(dgguias.Rows[e.RowIndex].Cells[0].Value);
+            aGuia = ListaGuias.FirstOrDefault(g => g.id == idg);
+            Cargar_Distribucion();
+
+        }
+
+        private void dgguias_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception != null && e.Context == DataGridViewDataErrorContexts.Display)
+            {
+               MessageBox.Show("");
+            }
+        }
+
+        private void dgdistribucion_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            if (e.Exception != null && e.Context == DataGridViewDataErrorContexts.Display)
+            {
+               MessageBox.Show("");
+            }
+        }
+
+        private void btnaceptar_Click(object sender, EventArgs e)
+        {
+            if(Validar())
+              Guardar();
+        }
+        
+        private bool Validar()
+        {
+           return txtnumerovuelo.Text != "";
+        }
+
+        private void Guardar()
+        {
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+               if (aVuelo.id == 0)
+                  db.Agregar_Vuelo(txtnumerovuelo.Text, dtfecha.Value, aCiudad);
+               else
+                  db.Modificar_Vuelo(aVuelo.id, txtnumerovuelo.Text, dtfecha.Value, aCiudad);
+            }
+        }
+
+        private void btncancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgguias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgguias_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if(aGuia.id!=0)
+               aGuia.Modificado = true;
+        }
+
+        private void dgguias_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+        private void Guardar_Guia()
+        {
+            //if (aGuia.id == 0)
+            //    ListaGuias.Add(aGuia);
+            //else
+                      
+        }
+
+        private void txtnumerovuelo_TextChanged(object sender, EventArgs e)
+        {
+            if (aVuelo != null)
+                aVuelo.NoVuelo =txtnumerovuelo.Text.Trim();
+        }
+
+        private void dtfecha_ValueChanged(object sender, EventArgs e)
+        {
+            if(aVuelo!=null)
+               aVuelo.Fecha = dtfecha.Value;
         }
     }
 }
