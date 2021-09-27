@@ -168,8 +168,15 @@ namespace PruebaGitHub
 
         private void btnaceptar_Click(object sender, EventArgs e)
         {
-            if(Validar())
+            if (Validar())
+            {
               Guardar();
+              DialogResult result=MessageBox.Show("Los valores se guardaron correctamente, Desea Continuar Modificando", "Mensaje de Pregunta", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+              if (result == DialogResult.No)
+                 this.Close();
+            }
+            else
+                MessageBox.Show("Antes de Guardar debe entrar un Número de Vuelo", "Error de Validación en la Acción Guardar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         
         private bool Validar()
@@ -190,7 +197,7 @@ namespace PruebaGitHub
 
         private void btncancelar_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void dgguias_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -218,14 +225,12 @@ namespace PruebaGitHub
 
         private void txtnumerovuelo_TextChanged(object sender, EventArgs e)
         {
-            if (aVuelo != null)
-                aVuelo.NoVuelo =txtnumerovuelo.Text.Trim();
+           
         }
 
         private void dtfecha_ValueChanged(object sender, EventArgs e)
         {
-            if(aVuelo!=null)
-               aVuelo.Fecha = dtfecha.Value;
+           
         }
     }
 }
