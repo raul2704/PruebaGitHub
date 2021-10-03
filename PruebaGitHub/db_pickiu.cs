@@ -21,6 +21,7 @@ namespace PruebaGitHub
         internal void Agregar_Vuelo(string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
         {
             Vuelos vuelo = new Vuelos { NoVuelo=pnumero_vuelo,Fecha=pfecha, idCiudad=pciudad.id };
+            Vuelos.Add(vuelo);
             SaveChanges();
         }
 
@@ -33,6 +34,25 @@ namespace PruebaGitHub
                vuelo.Fecha = pfecha;
                vuelo.idCiudad= pciudad.id;
                SaveChanges();
+            }
+        }
+
+        internal void Agregar_Guia(int pnumero, int pidcliente, int pidvuelo)
+        {
+            Guias guia = new Guias { numero = pnumero, idCliente = pidcliente, idVuelo = pidvuelo };
+            Guias.Add(guia);
+            SaveChanges();
+        }
+
+        internal void Modificar_Guia(int pidguia, int pnumero, int pidcliente, int pidvuelo)
+        {
+            Guias guia = Guias.FirstOrDefault(g => g.id == pidguia);
+            if (guia != null)
+            {
+                guia.numero = pnumero;
+                guia.idCliente = pidcliente;
+                guia.idVuelo = pidvuelo;
+                SaveChanges();
             }
         }
     }

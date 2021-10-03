@@ -17,6 +17,8 @@ namespace PruebaGitHub
         Ciudades aCiudad = null;
         Guias aGuia = null;                
         List<Ciudades> ListaCiudades = null;
+        List<Clientes> ListaClientes = null;
+        List<Flores> ListaFlores = null;
         List<Origenes> ListaOrigenes = null;
         List<Pickiu> ListaDistribucion = null;
         List<Guias> ListaGuias = null;
@@ -25,16 +27,62 @@ namespace PruebaGitHub
            InitializeComponent();
            idvuelo = pidvuelo;
         }
-
-        private void splitContainer2_Panel2_Paint(object sender, PaintEventArgs e)
-        {
-             
-        }
-
+       
         private void feditarpickiu_Load(object sender, EventArgs e)
         {
             Cargar_Ciudades();
+            Cargar_Clientes();
+            Cargar_Flores();
+            Cargar_Origenes();
             Cargar_Datos();
+        }
+
+        private void Cargar_Ciudades()
+        {
+            ListaCiudades = null;
+            aCiudad = null;
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+                ListaCiudades = db.Ciudades.OrderBy(c => c.Nombre).ToList();
+                cbciudades.DataSource = ListaCiudades;
+                if (ListaCiudades.Count != 0)
+                {
+                    aCiudad = ListaCiudades.FirstOrDefault();
+                    if (aCiudad != null)
+                        cbciudades.SelectedItem = aCiudad;
+                }
+            }
+        }  
+        
+        private void Cargar_Clientes()
+        {
+            ListaClientes = new List<Clientes>();
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+              ListaClientes = db.Clientes.ToList(); 
+              cbCliente.DataSource = ListaClientes;               
+            }
+        }
+
+        private void Cargar_Flores()
+        {
+            ListaFlores = new List<Flores>();
+            using(DBPickiuEntities db=new DBPickiuEntities())
+            {
+              ListaFlores=db.Flores.ToList();
+              cbflores.DataSource = ListaFlores;                
+            }
+        }
+
+        private void Cargar_Origenes()
+        {
+            ListaOrigenes = new List<Origenes>();
+            using (DBPickiuEntities db = new DBPickiuEntities())
+            {
+                if (aCiudad != null)
+                    ListaOrigenes = db.Origenes.Where(o => o.idCiudad == aCiudad.id).ToList();
+                cborigen.DataSource = ListaOrigenes;
+            }
         }
 
         private void Cargar_Datos()
@@ -67,24 +115,7 @@ namespace PruebaGitHub
             dtfecha.Value = DateTime.Today;
             dgguias.DataSource = null;
             dgdistribucion.DataSource = null;
-        }
-
-        private void Cargar_Ciudades()
-        {
-            ListaCiudades = null;
-            aCiudad = null;
-           using (DBPickiuEntities db = new DBPickiuEntities())
-           {
-              ListaCiudades = db.Ciudades.OrderBy(c => c.Nombre).ToList();               
-              cbciudades.DataSource = ListaCiudades;
-              if (ListaCiudades.Count != 0)
-              {
-                 aCiudad = ListaCiudades.FirstOrDefault();
-                 //if(aCiudad!=null) 
-                 //  cbciudades.SelectedItem = aCiudad;
-              }
-           }
-        }
+        }            
 
         private void Cargar_Guias()
         {
@@ -93,15 +124,13 @@ namespace PruebaGitHub
             ListaGuias = new List<Guias>();
             using (DBPickiuEntities db = new DBPickiuEntities()) 
             {
-                cbCliente.DataSource = db.Clientes.ToList();
                 if (aVuelo != null)
                 {
-                    ListaGuias = db.Guias.Where(g => g.idVuelo == aVuelo.id).OrderBy(g=>g.numero).ToList();
+                    ListaGuias = db.Guias.Where(g => g.idVuelo == aVuelo.id).OrderBy(g=>g.id).ToList();
                     dgguias.DataSource =new BindingList<Guias>(ListaGuias);
                     if (ListaGuias.Count > 0)
                         aGuia = ListaGuias.FirstOrDefault();
                 }
-
                 Cargar_Distribucion(); 
             }
         }       
@@ -111,27 +140,13 @@ namespace PruebaGitHub
             dgdistribucion.AutoGenerateColumns = false;
             ListaDistribucion = new List<Pickiu>();
             using (DBPickiuEntities db = new DBPickiuEntities())
-            {
-                cbflores.DataSource = db.Flores.ToList();
-                Cargar_Origenes();
+            {          
                 if (aGuia != null)
                 {
-                    ListaDistribucion = db.Pickiu.Where(p => p.idGuia == aGuia.id).ToList();
-                    dgdistribucion.DataSource = new BindingList<Pickiu>(ListaDistribucion);
+                   ListaDistribucion = db.Pickiu.Where(p => p.idGuia == aGuia.id).ToList();
+                   dgdistribucion.DataSource = new BindingList<Pickiu>(ListaDistribucion);
                 }
-            }
-            //using()                      
-        }
-
-        private void Cargar_Origenes()
-        {
-            ListaOrigenes = new List<Origenes>();
-            using (DBPickiuEntities db = new DBPickiuEntities())
-            {
-                if (aCiudad != null)
-                    ListaOrigenes= db.Origenes.Where(o => o.idCiudad == aCiudad.id).ToList();
-                cborigen.DataSource = ListaOrigenes;                 
-            }
+            }                              
         }
 
         private void cbciudades_SelectedIndexChanged(object sender, EventArgs e)
@@ -148,23 +163,7 @@ namespace PruebaGitHub
             aGuia = ListaGuias.FirstOrDefault(g => g.id == idg);
             Cargar_Distribucion();
 
-        }
-
-        private void dgguias_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            if (e.Exception != null && e.Context == DataGridViewDataErrorContexts.Display)
-            {
-               MessageBox.Show("");
-            }
-        }
-
-        private void dgdistribucion_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            if (e.Exception != null && e.Context == DataGridViewDataErrorContexts.Display)
-            {
-               MessageBox.Show("");
-            }
-        }
+        } 
 
         private void btnaceptar_Click(object sender, EventArgs e)
         {
@@ -188,10 +187,19 @@ namespace PruebaGitHub
         {
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-               if (aVuelo.id == 0)
+               if (aVuelo.id == 0)  
                   db.Agregar_Vuelo(txtnumerovuelo.Text, dtfecha.Value, aCiudad);
                else
                   db.Modificar_Vuelo(aVuelo.id, txtnumerovuelo.Text, dtfecha.Value, aCiudad);
+            
+               //Guias------------------------------------------------------
+               foreach(Guias g in ListaGuias)
+               {
+                    if (g.Estado == estado.agregado)
+                        db.Agregar_Guia(g.numero, g.idCliente, g.idVuelo);
+                    if (g.Estado == estado.modificado)
+                        db.Modificar_Guia(g.id, g.numero, g.idCliente, g.idVuelo);
+               }            
             }
         }
 
@@ -200,37 +208,52 @@ namespace PruebaGitHub
             this.Close();
         }
 
-        private void dgguias_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dgguias_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if(aGuia.id!=0)
-               aGuia.Modificado = true;
+            if (aGuia != null)
+            {
+               if(aGuia.id == 0)
+                  aGuia.Estado = estado.agregado;
+               else
+                  aGuia.Estado = estado.modificado;
+            }
         }
 
         private void dgguias_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if(Validate())
+               Guardar_Guia_Local();
         }
-        private void Guardar_Guia()
+        private void Guardar_Guia_Local()
         {
-            //if (aGuia.id == 0)
-            //    ListaGuias.Add(aGuia);
-            //else
-                      
+            if (ListaGuias != null) 
+            {
+               if (aGuia != null && aGuia.Estado==estado.agregado && aGuia.id==0)
+               {
+                  int idg = 1;
+                  Guias guiatemp = ListaGuias.LastOrDefault(g => g.id != 0);
+                  if (guiatemp != null)
+                      idg = guiatemp.id + 1;
+                  aGuia.id = idg;
+                  aGuia.idVuelo = aVuelo.id;                 
+               }                   
+            }
         }
 
-        private void txtnumerovuelo_TextChanged(object sender, EventArgs e)
+        private void dgdistribucion_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-           
+            if(e.Exception!=null && e.Context == DataGridViewDataErrorContexts.Display)
+            {
+                e.Cancel = true;
+            }
         }
 
-        private void dtfecha_ValueChanged(object sender, EventArgs e)
+        private void dgguias_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-           
+            if (e.Exception != null && e.Context == DataGridViewDataErrorContexts.Display)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

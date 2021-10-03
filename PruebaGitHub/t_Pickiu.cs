@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PruebaGitHub
 {
     public partial class Pickiu
-    {        
-        public bool Modificado { set; get; }
+    {
+        public estado Estado { set; get; } = estado.normal;
     }
 }

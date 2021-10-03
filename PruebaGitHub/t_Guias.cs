@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace PruebaGitHub
 {
+    public enum estado
+    {
+       normal=1,
+       agregado,
+       modificado
+    }
     public partial class Guias
     {
-        public bool Modificado { set; get; }
+        public estado Estado { set; get; } = estado.normal;
         
     }
 }

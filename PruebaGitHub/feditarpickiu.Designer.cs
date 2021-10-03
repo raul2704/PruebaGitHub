@@ -126,7 +126,6 @@ namespace PruebaGitHub
             this.dgguias.Name = "dgguias";
             this.dgguias.Size = new System.Drawing.Size(431, 134);
             this.dgguias.TabIndex = 2;
-            this.dgguias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_CellContentClick);
             this.dgguias.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_CellEndEdit);
             this.dgguias.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgguias_DataError);
             this.dgguias.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgguias_RowEnter);
@@ -154,6 +153,7 @@ namespace PruebaGitHub
             this.cbCliente.HeaderText = "Cliente";
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.ValueMember = "id";
+            this.cbCliente.Width = 200;
             // 
             // clientesBindingSource
             // 
@@ -311,7 +311,6 @@ namespace PruebaGitHub
             this.dtfecha.Name = "dtfecha";
             this.dtfecha.Size = new System.Drawing.Size(101, 20);
             this.dtfecha.TabIndex = 2;
-            this.dtfecha.ValueChanged += new System.EventHandler(this.dtfecha_ValueChanged);
             // 
             // cbciudades
             // 
@@ -335,7 +334,6 @@ namespace PruebaGitHub
             this.txtnumerovuelo.Name = "txtnumerovuelo";
             this.txtnumerovuelo.Size = new System.Drawing.Size(100, 20);
             this.txtnumerovuelo.TabIndex = 4;
-            this.txtnumerovuelo.TextChanged += new System.EventHandler(this.txtnumerovuelo_TextChanged);
             // 
             // splitContainer2
             // 
@@ -764,11 +762,11 @@ namespace PruebaGitHub
         private System.Windows.Forms.BindingSource pickiuBindingSource;
         private System.Windows.Forms.DataGridView dgguias;
         private System.Windows.Forms.DataGridView dgdistribucion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cbCliente;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbflores;
         private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
         private System.Windows.Forms.DataGridViewComboBoxColumn cborigen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idg;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cbCliente;
     }
 }
