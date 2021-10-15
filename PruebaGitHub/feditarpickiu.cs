@@ -188,17 +188,17 @@ namespace PruebaGitHub
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
                if (aVuelo.id == 0)  
-                  db.Agregar_Vuelo(txtnumerovuelo.Text, dtfecha.Value, aCiudad);
+                   aVuelo.id=db.Agregar_Vuelo(txtnumerovuelo.Text, dtfecha.Value, aCiudad);
                else
                   db.Modificar_Vuelo(aVuelo.id, txtnumerovuelo.Text, dtfecha.Value, aCiudad);
             
                //Guias------------------------------------------------------
                foreach(Guias g in ListaGuias)
                {
-                    if (g.Estado == estado.agregado)
-                        db.Agregar_Guia(g.numero, g.idCliente, g.idVuelo);
-                    if (g.Estado == estado.modificado)
-                        db.Modificar_Guia(g.id, g.numero, g.idCliente, g.idVuelo);
+                  if (g.Estado == estado.agregado)
+                      db.Agregar_Guia(g.numero, g.idCliente, aVuelo.id);
+                  if (g.Estado == estado.modificado)
+                      db.Modificar_Guia(g.id, g.numero, g.idCliente);
                }            
             }
         }
@@ -234,8 +234,7 @@ namespace PruebaGitHub
                   Guias guiatemp = ListaGuias.LastOrDefault(g => g.id != 0);
                   if (guiatemp != null)
                       idg = guiatemp.id + 1;
-                  aGuia.id = idg;
-                  aGuia.idVuelo = aVuelo.id;                 
+                  aGuia.id = idg;                                 
                }                   
             }
         }

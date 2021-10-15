@@ -18,11 +18,12 @@ namespace PruebaGitHub
             return lista;
         }
 
-        internal void Agregar_Vuelo(string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
+        internal int Agregar_Vuelo(string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
         {
             Vuelos vuelo = new Vuelos { NoVuelo=pnumero_vuelo,Fecha=pfecha, idCiudad=pciudad.id };
             Vuelos.Add(vuelo);
             SaveChanges();
+            return vuelo.id;
         }
 
         internal void Modificar_Vuelo(int pid, string pnumero_vuelo, DateTime pfecha, Ciudades pciudad)
@@ -44,14 +45,13 @@ namespace PruebaGitHub
             SaveChanges();
         }
 
-        internal void Modificar_Guia(int pidguia, int pnumero, int pidcliente, int pidvuelo)
+        internal void Modificar_Guia(int pidguia, int pnumero, int pidcliente)
         {
             Guias guia = Guias.FirstOrDefault(g => g.id == pidguia);
             if (guia != null)
             {
                 guia.numero = pnumero;
-                guia.idCliente = pidcliente;
-                guia.idVuelo = pidvuelo;
+                guia.idCliente = pidcliente;                
                 SaveChanges();
             }
         }
