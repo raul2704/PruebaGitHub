@@ -30,25 +30,8 @@ namespace PruebaGitHub
 
         private void ControlPickiu_Load(object sender, EventArgs e)
         {
-           Cargar_Ciudades();
-           Cargar_Origenes();
-           //Cargar_Datos();
-        }
-
-        private void Cargar_Origenes()
-        {
-            using (DBPickiuEntities db = new DBPickiuEntities())
-            {
-               var lstorigenes = db.Origenes.ToList();
-               lstorigenes.Add(new Origenes { id = 0, Origen = "- TODOS -" });
-               if (aCiudad.id != 0)
-                   lstorigenes = lstorigenes.Where(o => o.idCiudad == aCiudad.id).ToList();
-               cborigen.DataSource = lstorigenes.OrderBy(c => c.Origen).ToList();
-               aOrigen = lstorigenes.Find(o=>o.id==0);
-               if(aOrigen!=null)
-                 cborigen.SelectedItem = aOrigen;
-            }
-        }
+           Cargar_Ciudades();          
+        }       
 
         private void Cargar_Ciudades()
         {
@@ -71,14 +54,11 @@ namespace PruebaGitHub
             {
                 origenesBindingSource1.DataSource = db.Origenes.ToList();
                 List<cgestionarpickiu> milista= db.Lista_Pickiu();
-                milista = milista.Where(c => c.FechaVuelo >= aFechaVuelo).ToList();
-                
+                milista = milista.Where(c => c.FechaVuelo <= aFechaVuelo).ToList();
                 if (aNoVuelo != "")
                     milista = milista.Where(l => l.NoVuelo.Equals(aNoVuelo)).ToList();
                 if (aCiudad!=null && aCiudad.id != 0)                  
-                    milista = milista.Where(l => l.Ciudad.Equals(aCiudad.Nombre)).ToList();
-                if (aOrigen!=null && aOrigen.id != 0)
-                    milista = milista.Where(l => l.Origen == aOrigen.id).ToList();
+                    milista = milista.Where(l => l.Ciudad.Equals(aCiudad.Nombre)).ToList();               
 
                 dgpickiu.DataSource = milista;
             }
@@ -86,17 +66,15 @@ namespace PruebaGitHub
 
         private void textBox2_Validated(object sender, EventArgs e)
         {
+            aNoVuelo = "";
             if (textBox2.Text != "")
-            {
-                aNoVuelo = textBox2.Text;
-                Cargar_Datos();
-            }                
+              aNoVuelo = textBox2.Text;            
+            Cargar_Datos();                
         }
 
         private void cbciudad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            aCiudad =cbciudad.SelectedItem as Ciudades;
-            Cargar_Origenes();
+            aCiudad =cbciudad.SelectedItem as Ciudades;            
             Cargar_Datos();
         }
 
@@ -108,21 +86,22 @@ namespace PruebaGitHub
 
         private void cborigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            aOrigen = cborigen.SelectedItem as Origenes;
-            Cargar_Datos();
+           Cargar_Datos();
         }
 
         private void btnagregar_Click(object sender, EventArgs e)
         {
             feditarpickiu formedit = new feditarpickiu();
             formedit.Text = "";
+            formedit.Cargar_Datos();
             formedit.ShowDialog();
             Cargar_Datos();
         }
 
         private void btneditar_Click(object sender, EventArgs e)
         {
-            feditarpickiu formedit = new feditarpickiu(idvuelo);
+            feditarpickiu formedit = new feditarpickiu();
+            formedit.Cargar_Datos(idvuelo);
             formedit.ShowDialog();
             Cargar_Datos();
         }
@@ -130,6 +109,10 @@ namespace PruebaGitHub
         private void dgpickiu_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
            idvuelo =Convert.ToInt32(dgpickiu.Rows[e.RowIndex].Cells[0].Value);           
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }

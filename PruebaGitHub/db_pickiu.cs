@@ -11,9 +11,9 @@ namespace PruebaGitHub
         public List<cgestionarpickiu> Lista_Pickiu()
         {
             List<cgestionarpickiu> lista = new List<cgestionarpickiu>();
-            foreach(Pickiu pk in Pickiu.ToList())
-            {
-              lista.Add(new cgestionarpickiu {idvuelo=pk.Guias.idVuelo, NoVuelo = pk.Guias.Vuelos.NoVuelo.ToString(), FechaVuelo = pk.Guias.Vuelos.Fecha, Ciudad = pk.Guias.Vuelos.Ciudades.Nombre, NoGuia = pk.Guias.numero.ToString(), Origen=pk.Origenes.id});              
+            foreach(Vuelos v in Vuelos.ToList())
+            {                
+                lista.Add(new cgestionarpickiu { idvuelo = v.id, NoVuelo = v.NoVuelo.ToString(), FechaVuelo = v.Fecha, Ciudad = v.Ciudades.Nombre });                
             }
             return lista;
         }

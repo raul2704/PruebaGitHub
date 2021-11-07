@@ -54,8 +54,8 @@ namespace PruebaGitHub
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelcontenedor);
-            this.splitContainer1.Size = new System.Drawing.Size(1040, 494);
-            this.splitContainer1.SplitterDistance = 143;
+            this.splitContainer1.Size = new System.Drawing.Size(639, 494);
+            this.splitContainer1.SplitterDistance = 146;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -97,7 +97,7 @@ namespace PruebaGitHub
             this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcontenedor.Location = new System.Drawing.Point(0, 0);
             this.panelcontenedor.Name = "panelcontenedor";
-            this.panelcontenedor.Size = new System.Drawing.Size(893, 494);
+            this.panelcontenedor.Size = new System.Drawing.Size(489, 494);
             this.panelcontenedor.TabIndex = 0;
             // 
             // FPanelPrincipal
@@ -105,7 +105,7 @@ namespace PruebaGitHub
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1040, 494);
+            this.ClientSize = new System.Drawing.Size(639, 494);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FPanelPrincipal";
             this.Text = "FPanelPrincipal";

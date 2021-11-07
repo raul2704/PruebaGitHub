@@ -12,7 +12,6 @@ namespace PruebaGitHub
 {
     public partial class feditarpickiu : Form
     {
-        int idvuelo = 0;
         Vuelos aVuelo = null;
         Ciudades aCiudad = null;
         Guias aGuia = null;                
@@ -22,10 +21,9 @@ namespace PruebaGitHub
         List<Origenes> ListaOrigenes = null;
         List<Pickiu> ListaDistribucion = null;
         List<Guias> ListaGuias = null;
-        public feditarpickiu(int pidvuelo=0)
+        public feditarpickiu()
         {
-           InitializeComponent();
-           idvuelo = pidvuelo;
+           InitializeComponent();          
         }
        
         private void feditarpickiu_Load(object sender, EventArgs e)
@@ -33,8 +31,7 @@ namespace PruebaGitHub
             Cargar_Ciudades();
             Cargar_Clientes();
             Cargar_Flores();
-            Cargar_Origenes();
-            Cargar_Datos();
+            Cargar_Origenes();           
         }
 
         private void Cargar_Ciudades()
@@ -85,25 +82,25 @@ namespace PruebaGitHub
             }
         }
 
-        private void Cargar_Datos()
+        public void Cargar_Datos(int idvuelo=0)
         {
             Limpiar();
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
-                if (idvuelo == 0) 
+                if (idvuelo == 0)
                 {
-                   aVuelo = new Vuelos { id = 0, NoVuelo = "", Fecha = DateTime.Today }; 
-                   if (aCiudad != null)
-                      aVuelo.Ciudades = aCiudad;                   
+                    aVuelo = new Vuelos { id = 0, NoVuelo = "", Fecha = DateTime.Today };
+                    if (aCiudad != null)
+                        aVuelo.idCiudad = aCiudad.id;
                 }
                 else
                     aVuelo = db.Vuelos.FirstOrDefault(v => v.id == idvuelo);
                                 
                 txtnumerovuelo.Text = aVuelo.NoVuelo;
                 dtfecha.Value = aVuelo.Fecha;
-                aCiudad = ListaCiudades.FirstOrDefault(c => c.id == aVuelo.idCiudad);
-                if (aCiudad != null)
-                    cbciudades.SelectedItem = aCiudad;
+                cbciudades.SelectedItem =ListaCiudades!=null?ListaCiudades.FirstOrDefault(c => c.id == aVuelo.idCiudad):null;
+                //if (aCiudad != null)
+                //    cbciudades.SelectedItem = aCiudad;
                 
                 Cargar_Guias();
             }
@@ -180,7 +177,7 @@ namespace PruebaGitHub
         
         private bool Validar()
         {
-           return txtnumerovuelo.Text != "";
+          return txtnumerovuelo.Text != "";
         }
 
         private void Guardar()
@@ -215,7 +212,7 @@ namespace PruebaGitHub
                if(aGuia.id == 0)
                   aGuia.Estado = estado.agregado;
                else
-                  aGuia.Estado = estado.modificado;
+                  aGuia.Estado = estado.modificado;               
             }
         }
 
@@ -226,17 +223,18 @@ namespace PruebaGitHub
         }
         private void Guardar_Guia_Local()
         {
-            if (ListaGuias != null) 
-            {
                if (aGuia != null && aGuia.Estado==estado.agregado && aGuia.id==0)
                {
                   int idg = 1;
-                  Guias guiatemp = ListaGuias.LastOrDefault(g => g.id != 0);
-                  if (guiatemp != null)
-                      idg = guiatemp.id + 1;
+                  if (ListaGuias != null)
+                  {
+                     Guias guiatemp = ListaGuias.LastOrDefault(g => g.id != 0);
+                     if (guiatemp != null)
+                         idg = guiatemp.id + 1;
+                  }
                   aGuia.id = idg;                                 
                }                   
-            }
+           
         }
 
         private void dgdistribucion_DataError(object sender, DataGridViewDataErrorEventArgs e)
