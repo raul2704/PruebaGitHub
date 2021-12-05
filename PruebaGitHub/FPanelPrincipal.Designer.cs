@@ -34,6 +34,7 @@ namespace PruebaGitHub
             this.btngestionarorigen = new System.Windows.Forms.Button();
             this.btngestionarpickiu = new System.Windows.Forms.Button();
             this.panelcontenedor = new System.Windows.Forms.Panel();
+            this.btngestionarclientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,21 +63,23 @@ namespace PruebaGitHub
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.btngestionarclientes, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.btngestionarorigen, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btngestionarpickiu, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(139, 100);
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.33333F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(139, 88);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btngestionarorigen
             // 
             this.btngestionarorigen.Location = new System.Drawing.Point(3, 3);
             this.btngestionarorigen.Name = "btngestionarorigen";
-            this.btngestionarorigen.Size = new System.Drawing.Size(127, 23);
+            this.btngestionarorigen.Size = new System.Drawing.Size(127, 22);
             this.btngestionarorigen.TabIndex = 0;
             this.btngestionarorigen.Text = "Gestionar Origen";
             this.btngestionarorigen.UseVisualStyleBackColor = true;
@@ -84,7 +87,7 @@ namespace PruebaGitHub
             // 
             // btngestionarpickiu
             // 
-            this.btngestionarpickiu.Location = new System.Drawing.Point(3, 53);
+            this.btngestionarpickiu.Location = new System.Drawing.Point(3, 31);
             this.btngestionarpickiu.Name = "btngestionarpickiu";
             this.btngestionarpickiu.Size = new System.Drawing.Size(127, 23);
             this.btngestionarpickiu.TabIndex = 1;
@@ -99,6 +102,16 @@ namespace PruebaGitHub
             this.panelcontenedor.Name = "panelcontenedor";
             this.panelcontenedor.Size = new System.Drawing.Size(489, 494);
             this.panelcontenedor.TabIndex = 0;
+            // 
+            // btngestionarclientes
+            // 
+            this.btngestionarclientes.Location = new System.Drawing.Point(3, 60);
+            this.btngestionarclientes.Name = "btngestionarclientes";
+            this.btngestionarclientes.Size = new System.Drawing.Size(127, 22);
+            this.btngestionarclientes.TabIndex = 2;
+            this.btngestionarclientes.Text = "Gestionar Clientes";
+            this.btngestionarclientes.UseVisualStyleBackColor = true;
+            this.btngestionarclientes.Click += new System.EventHandler(this.btngestionarcliente_Click);
             // 
             // FPanelPrincipal
             // 
@@ -125,5 +138,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.Panel panelcontenedor;
         private System.Windows.Forms.Button btngestionarorigen;
         private System.Windows.Forms.Button btngestionarpickiu;
+        private System.Windows.Forms.Button btngestionarclientes;
     }
 }

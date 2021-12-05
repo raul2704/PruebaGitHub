@@ -14,6 +14,7 @@ namespace PruebaGitHub
     {
         ControlPickiu cpickiu = null;
         ControlOrigenes corigenes = null;
+        GestionarClientes cgestionarclientes = null;
         public FPanelPrincipal()
         {
             InitializeComponent();
@@ -62,6 +63,26 @@ namespace PruebaGitHub
             }
             cpickiu.Show(); 
             cpickiu.BringToFront();
+        }
+
+        private void btngestionarcliente_Click(object sender, EventArgs e)
+        {
+            Mostra_Gestionar_Clientes();
+        }
+
+        private void Mostra_Gestionar_Clientes()
+        {
+            foreach (Control c in panelcontenedor.Controls)
+                c.Hide();
+            cgestionarclientes = panelcontenedor.Controls.OfType<GestionarClientes>().FirstOrDefault();
+            if (cgestionarclientes == null)
+            {
+                cgestionarclientes = new GestionarClientes();
+                cgestionarclientes.Dock = DockStyle.Fill;
+                panelcontenedor.Controls.Add(cgestionarclientes);
+            }
+            cgestionarclientes.Show();
+            cgestionarclientes.BringToFront();
         }
     }
 }

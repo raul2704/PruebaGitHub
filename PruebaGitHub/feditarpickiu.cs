@@ -28,10 +28,7 @@ namespace PruebaGitHub
        
         private void feditarpickiu_Load(object sender, EventArgs e)
         {
-            Cargar_Ciudades();
-            Cargar_Clientes();
-            Cargar_Flores();
-            Cargar_Origenes();           
+                      
         }
 
         private void Cargar_Ciudades()
@@ -84,6 +81,10 @@ namespace PruebaGitHub
 
         public void Cargar_Datos(int idvuelo=0)
         {
+            Cargar_Ciudades();
+            Cargar_Clientes();
+            Cargar_Flores();
+            Cargar_Origenes();
             Limpiar();
             using (DBPickiuEntities db = new DBPickiuEntities())
             {
@@ -98,7 +99,7 @@ namespace PruebaGitHub
                                 
                 txtnumerovuelo.Text = aVuelo.NoVuelo;
                 dtfecha.Value = aVuelo.Fecha;
-                cbciudades.SelectedItem =ListaCiudades!=null?ListaCiudades.FirstOrDefault(c => c.id == aVuelo.idCiudad):null;
+                cbciudades.SelectedValue =aVuelo.idCiudad;
                 //if (aCiudad != null)
                 //    cbciudades.SelectedItem = aCiudad;
                 
@@ -241,7 +242,7 @@ namespace PruebaGitHub
         {
             if(e.Exception!=null && e.Context == DataGridViewDataErrorContexts.Display)
             {
-                e.Cancel = true;
+               e.Cancel = true;
             }
         }
 
