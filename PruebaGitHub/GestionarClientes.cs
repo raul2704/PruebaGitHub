@@ -33,6 +33,7 @@ namespace PruebaGitHub
             db.Clientes.Load();
             var lstclientes = db.Clientes.ToList();
             gcclientes.DataSource = new BindingList<Clientes>(lstclientes).ToList();
+
         }
     }
 }

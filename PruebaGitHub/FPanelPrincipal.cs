@@ -81,6 +81,7 @@ namespace PruebaGitHub
                 cgestionarclientes.Dock = DockStyle.Fill;
                 panelcontenedor.Controls.Add(cgestionarclientes);
             }
+            cgestionarclientes.Cargar_Datos();
             cgestionarclientes.Show();
             cgestionarclientes.BringToFront();
         }
