@@ -21,6 +21,8 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Direccion" Type="nvarchar" MaxLength="250" />
           <Property Name="Telefono" Type="nvarchar" MaxLength="11" />
+          <Property Name="fecha_Update" Type="datetime" />
+          <Property Name="urlfoto" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Fincas">
           <Key>
@@ -353,6 +355,8 @@
           <Property Name="Direccion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Telefono" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Guias" Relationship="Self.FK_Guias_Clientes" FromRole="Clientes" ToRole="Guias" />
+          <Property Name="fecha_Update" Type="DateTime" Precision="3" />
+          <Property Name="urlfoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Fincas">
           <Key>
@@ -699,6 +703,8 @@
           <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="DBPickiuModel.Clientes">
               <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="urlfoto" ColumnName="urlfoto" />
+                <ScalarProperty Name="fecha_Update" ColumnName="fecha_Update" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Direccion" ColumnName="Direccion" />

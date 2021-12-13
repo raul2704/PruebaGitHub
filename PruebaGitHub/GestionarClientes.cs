@@ -55,12 +55,27 @@ namespace PruebaGitHub
 
         private void gvclientes_InitNewRow(object sender, DevExpress.XtraGrid.Views.Grid.InitNewRowEventArgs e)
         {
-            cliente = gvclientes.GetFocusedRow() as Clientes;
+            // cliente = gvclientes.GetFocusedRow() as Clientes;
+            // cliente.fecha
+            gvclientes.SetFocusedRowCellValue("fecha_Update", DateTime.Now);
         }
 
         private void gvclientes_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            cliente = gvclientes.GetFocusedRow() as Clientes;
+          cliente = gvclientes.GetFocusedRow() as Clientes;
+        }
+
+        private void ribbonControl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void baredit_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FEditarCliente feditar = new FEditarCliente();
+            feditar.Cargar_Datos(cliente.id);
+            feditar.Show();
+
         }
     }
 }

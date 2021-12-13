@@ -145,11 +145,20 @@
     <Compile Include="GestionarClientes.Designer.cs">
       <DependentUpon>GestionarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FEditarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FEditarCliente.Designer.cs">
+      <DependentUpon>FEditarCliente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ControlOrigenes.resx">
       <DependentUpon>ControlOrigenes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPickiu.resx">
       <DependentUpon>ControlPickiu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FEditarCliente.resx">
+      <DependentUpon>FEditarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="feditarpickiu.resx">
       <DependentUpon>feditarpickiu.cs</DependentUpon>
@@ -220,6 +229,10 @@
       <DependentUpon>Modelo.edmx</DependentUpon>
       <LastGenOutput>Modelo.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\deletedatasource2_16x16.png" />
+    <None Include="Resources\deletedatasource2_32x32.png" />
+    <None Include="Resources\editdatasource_16x16.png" />
+    <None Include="Resources\editdatasource_32x32.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

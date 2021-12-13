@@ -33,12 +33,12 @@ namespace PruebaGitHub
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
-            this.bbiEdit = new DevExpress.XtraBars.BarButtonItem();
+            this.baredit = new DevExpress.XtraBars.BarButtonItem();
             this.bbiDelete = new DevExpress.XtraBars.BarButtonItem();
             this.bbiRefresh = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.bbiPrintPreview = new DevExpress.XtraBars.BarButtonItem();
+            this.bbiNew = new DevExpress.XtraBars.BarButtonItem();
             this.bsiRecordsCount = new DevExpress.XtraBars.BarStaticItem();
             this.ribbonControl = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.gcclientes = new DevExpress.XtraGrid.GridControl();
@@ -47,6 +47,7 @@ namespace PruebaGitHub
             this.colNombre = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDireccion = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTelefono = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colfecha_Update = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcclientes)).BeginInit();
@@ -69,34 +70,31 @@ namespace PruebaGitHub
             // ribbonPageGroup1
             // 
             this.ribbonPageGroup1.AllowTextClipping = false;
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiNew);
-            this.ribbonPageGroup1.ItemLinks.Add(this.bbiEdit);
+            this.ribbonPageGroup1.ItemLinks.Add(this.baredit);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiDelete);
             this.ribbonPageGroup1.ItemLinks.Add(this.bbiRefresh);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.ShowCaptionButton = false;
             this.ribbonPageGroup1.Text = "Tasks";
             // 
-            // bbiNew
+            // baredit
             // 
-            this.bbiNew.Caption = "New";
-            this.bbiNew.Id = 16;
-            this.bbiNew.ImageOptions.ImageUri.Uri = "New";
-            this.bbiNew.Name = "bbiNew";
-            // 
-            // bbiEdit
-            // 
-            this.bbiEdit.Caption = "Edit";
-            this.bbiEdit.Id = 17;
-            this.bbiEdit.ImageOptions.ImageUri.Uri = "Edit";
-            this.bbiEdit.Name = "bbiEdit";
+            this.baredit.Caption = "Edit";
+            this.baredit.Id = 21;
+            this.baredit.ImageOptions.Image = global::PruebaGitHub.Properties.Resources.editdatasource_16x16;
+            this.baredit.ImageOptions.LargeImage = global::PruebaGitHub.Properties.Resources.editdatasource_32x32;
+            this.baredit.Name = "baredit";
+            this.baredit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.baredit_ItemClick);
             // 
             // bbiDelete
             // 
             this.bbiDelete.Caption = "Delete";
             this.bbiDelete.Id = 18;
-            this.bbiDelete.ImageOptions.ImageUri.Uri = "Delete";
+            this.bbiDelete.ImageOptions.Image = global::PruebaGitHub.Properties.Resources.deletedatasource2_16x16;
+            this.bbiDelete.ImageOptions.LargeImage = global::PruebaGitHub.Properties.Resources.deletedatasource2_32x32;
             this.bbiDelete.Name = "bbiDelete";
+            this.bbiDelete.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
+            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // bbiRefresh
             // 
@@ -121,6 +119,13 @@ namespace PruebaGitHub
             this.bbiPrintPreview.Name = "bbiPrintPreview";
             this.bbiPrintPreview.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbiPrintPreview_ItemClick);
             // 
+            // bbiNew
+            // 
+            this.bbiNew.Caption = "New";
+            this.bbiNew.Id = 16;
+            this.bbiNew.ImageOptions.ImageUri.Uri = "New";
+            this.bbiNew.Name = "bbiNew";
+            // 
             // bsiRecordsCount
             // 
             this.bsiRecordsCount.Caption = "RECORDS : 0";
@@ -136,11 +141,11 @@ namespace PruebaGitHub
             this.bbiPrintPreview,
             this.bsiRecordsCount,
             this.bbiNew,
-            this.bbiEdit,
             this.bbiDelete,
-            this.bbiRefresh});
+            this.bbiRefresh,
+            this.baredit});
             this.ribbonControl.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl.MaxItemId = 20;
+            this.ribbonControl.MaxItemId = 22;
             this.ribbonControl.Name = "ribbonControl";
             this.ribbonControl.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -148,15 +153,17 @@ namespace PruebaGitHub
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbonControl.Size = new System.Drawing.Size(821, 116);
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
+            this.ribbonControl.Click += new System.EventHandler(this.ribbonControl_Click);
             // 
             // gcclientes
             // 
             this.gcclientes.DataSource = this.clientesBindingSource;
-            this.gcclientes.Location = new System.Drawing.Point(19, 122);
+            this.gcclientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcclientes.Location = new System.Drawing.Point(0, 116);
             this.gcclientes.MainView = this.gvclientes;
             this.gcclientes.MenuManager = this.ribbonControl;
             this.gcclientes.Name = "gcclientes";
-            this.gcclientes.Size = new System.Drawing.Size(647, 211);
+            this.gcclientes.Size = new System.Drawing.Size(821, 330);
             this.gcclientes.TabIndex = 1;
             this.gcclientes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvclientes});
@@ -167,7 +174,8 @@ namespace PruebaGitHub
             this.colid,
             this.colNombre,
             this.colDireccion,
-            this.colTelefono});
+            this.colTelefono,
+            this.colfecha_Update});
             this.gvclientes.GridControl = this.gcclientes;
             this.gvclientes.Name = "gvclientes";
             this.gvclientes.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
@@ -181,6 +189,7 @@ namespace PruebaGitHub
             this.colid.Name = "colid";
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
+            this.colid.Width = 61;
             // 
             // colNombre
             // 
@@ -188,6 +197,7 @@ namespace PruebaGitHub
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
+            this.colNombre.Width = 227;
             // 
             // colDireccion
             // 
@@ -195,6 +205,7 @@ namespace PruebaGitHub
             this.colDireccion.Name = "colDireccion";
             this.colDireccion.Visible = true;
             this.colDireccion.VisibleIndex = 2;
+            this.colDireccion.Width = 255;
             // 
             // colTelefono
             // 
@@ -202,6 +213,14 @@ namespace PruebaGitHub
             this.colTelefono.Name = "colTelefono";
             this.colTelefono.Visible = true;
             this.colTelefono.VisibleIndex = 3;
+            this.colTelefono.Width = 260;
+            // 
+            // colfecha_Update
+            // 
+            this.colfecha_Update.FieldName = "fecha_Update";
+            this.colfecha_Update.Name = "colfecha_Update";
+            this.colfecha_Update.OptionsColumn.AllowEdit = false;
+            this.colfecha_Update.OptionsColumn.ReadOnly = true;
             // 
             // GestionarClientes
             // 
@@ -225,7 +244,6 @@ namespace PruebaGitHub
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem bbiNew;
-        private DevExpress.XtraBars.BarButtonItem bbiEdit;
         private DevExpress.XtraBars.BarButtonItem bbiDelete;
         private DevExpress.XtraBars.BarButtonItem bbiRefresh;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
@@ -238,5 +256,7 @@ namespace PruebaGitHub
         private DevExpress.XtraGrid.Columns.GridColumn colNombre;
         private DevExpress.XtraGrid.Columns.GridColumn colDireccion;
         private DevExpress.XtraGrid.Columns.GridColumn colTelefono;
+        private DevExpress.XtraGrid.Columns.GridColumn colfecha_Update;
+        private DevExpress.XtraBars.BarButtonItem baredit;
     }
 }
