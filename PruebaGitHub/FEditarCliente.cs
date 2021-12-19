@@ -21,19 +21,47 @@ namespace PruebaGitHub
         Clientes cliente = null;
         public FEditarCliente()
         {
-            InitializeComponent();           
+           InitializeComponent();           
         } 
 
         public void Cargar_Datos(int idcliente)
         {
             db = new DBPickiuEntities();
-            cliente = db.Clientes.Find(idcliente);
+            cliente = db.Clientes.FirstOrDefault(c=>c.id==idcliente);
+            if (cliente != null)
+            {
+                phfoto.Image = cliente.Foto;
+                //...
+            }            
+        }
 
-            if (!string.IsNullOrEmpty(cliente.urlfoto))
-                phfoto.Image = System.Drawing.Image.FromFile(cliente.urlfoto);
+        private void tablePanel1_Paint(object sender, PaintEventArgs e)
+        {
 
         }
-      
-           
+
+        private void phfoto_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelControl3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void xtraTabPage2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void phfoto_DoubleClick(object sender, EventArgs e)
+        {
+            if (ofdfoto.ShowDialog() == DialogResult.OK)
+            {
+                db.Modificar_Foto_Cliente(cliente, ofdfoto.FileName);
+                phfoto.Image = cliente.Foto;               
+            }
+        }
     }
 }

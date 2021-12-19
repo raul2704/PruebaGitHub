@@ -31,10 +31,10 @@ namespace PruebaGitHub
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btngestionarclientes = new System.Windows.Forms.Button();
             this.btngestionarorigen = new System.Windows.Forms.Button();
             this.btngestionarpickiu = new System.Windows.Forms.Button();
             this.panelcontenedor = new System.Windows.Forms.Panel();
-            this.btngestionarclientes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -55,8 +55,8 @@ namespace PruebaGitHub
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panelcontenedor);
-            this.splitContainer1.Size = new System.Drawing.Size(639, 494);
-            this.splitContainer1.SplitterDistance = 146;
+            this.splitContainer1.Size = new System.Drawing.Size(889, 494);
+            this.splitContainer1.SplitterDistance = 147;
             this.splitContainer1.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -74,6 +74,16 @@ namespace PruebaGitHub
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(139, 88);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // btngestionarclientes
+            // 
+            this.btngestionarclientes.Location = new System.Drawing.Point(3, 60);
+            this.btngestionarclientes.Name = "btngestionarclientes";
+            this.btngestionarclientes.Size = new System.Drawing.Size(127, 22);
+            this.btngestionarclientes.TabIndex = 2;
+            this.btngestionarclientes.Text = "Gestionar Clientes";
+            this.btngestionarclientes.UseVisualStyleBackColor = true;
+            this.btngestionarclientes.Click += new System.EventHandler(this.btngestionarcliente_Click);
             // 
             // btngestionarorigen
             // 
@@ -100,25 +110,15 @@ namespace PruebaGitHub
             this.panelcontenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelcontenedor.Location = new System.Drawing.Point(0, 0);
             this.panelcontenedor.Name = "panelcontenedor";
-            this.panelcontenedor.Size = new System.Drawing.Size(489, 494);
+            this.panelcontenedor.Size = new System.Drawing.Size(738, 494);
             this.panelcontenedor.TabIndex = 0;
-            // 
-            // btngestionarclientes
-            // 
-            this.btngestionarclientes.Location = new System.Drawing.Point(3, 60);
-            this.btngestionarclientes.Name = "btngestionarclientes";
-            this.btngestionarclientes.Size = new System.Drawing.Size(127, 22);
-            this.btngestionarclientes.TabIndex = 2;
-            this.btngestionarclientes.Text = "Gestionar Clientes";
-            this.btngestionarclientes.UseVisualStyleBackColor = true;
-            this.btngestionarclientes.Click += new System.EventHandler(this.btngestionarcliente_Click);
             // 
             // FPanelPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(639, 494);
+            this.ClientSize = new System.Drawing.Size(889, 494);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FPanelPrincipal";
             this.Text = "FPanelPrincipal";

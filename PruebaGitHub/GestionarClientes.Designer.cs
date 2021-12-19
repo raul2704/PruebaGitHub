@@ -151,7 +151,7 @@ namespace PruebaGitHub
             this.ribbonPage1});
             this.ribbonControl.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
             this.ribbonControl.ShowApplicationButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbonControl.Size = new System.Drawing.Size(821, 116);
+            this.ribbonControl.Size = new System.Drawing.Size(853, 116);
             this.ribbonControl.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Hidden;
             this.ribbonControl.Click += new System.EventHandler(this.ribbonControl_Click);
             // 
@@ -163,7 +163,7 @@ namespace PruebaGitHub
             this.gcclientes.MainView = this.gvclientes;
             this.gcclientes.MenuManager = this.ribbonControl;
             this.gcclientes.Name = "gcclientes";
-            this.gcclientes.Size = new System.Drawing.Size(821, 330);
+            this.gcclientes.Size = new System.Drawing.Size(853, 330);
             this.gcclientes.TabIndex = 1;
             this.gcclientes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvclientes});
@@ -179,9 +179,12 @@ namespace PruebaGitHub
             this.gvclientes.GridControl = this.gcclientes;
             this.gvclientes.Name = "gvclientes";
             this.gvclientes.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvclientes.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvclientes_RowClick);
             this.gvclientes.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvclientes_InitNewRow);
             this.gvclientes.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvclientes_FocusedRowChanged);
+            this.gvclientes.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvclientes_ValidateRow);
             this.gvclientes.RowUpdated += new DevExpress.XtraGrid.Views.Base.RowObjectEventHandler(this.gvclientes_RowUpdated);
+            this.gvclientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvclientes_KeyDown);
             // 
             // colid
             // 
@@ -189,7 +192,7 @@ namespace PruebaGitHub
             this.colid.Name = "colid";
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 61;
+            this.colid.Width = 63;
             // 
             // colNombre
             // 
@@ -197,23 +200,23 @@ namespace PruebaGitHub
             this.colNombre.Name = "colNombre";
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
-            this.colNombre.Width = 227;
+            this.colNombre.Width = 230;
             // 
             // colDireccion
             // 
             this.colDireccion.FieldName = "Direccion";
             this.colDireccion.Name = "colDireccion";
             this.colDireccion.Visible = true;
-            this.colDireccion.VisibleIndex = 2;
-            this.colDireccion.Width = 255;
+            this.colDireccion.VisibleIndex = 3;
+            this.colDireccion.Width = 376;
             // 
             // colTelefono
             // 
             this.colTelefono.FieldName = "Telefono";
             this.colTelefono.Name = "colTelefono";
             this.colTelefono.Visible = true;
-            this.colTelefono.VisibleIndex = 3;
-            this.colTelefono.Width = 260;
+            this.colTelefono.VisibleIndex = 2;
+            this.colTelefono.Width = 166;
             // 
             // colfecha_Update
             // 
@@ -229,7 +232,7 @@ namespace PruebaGitHub
             this.Controls.Add(this.gcclientes);
             this.Controls.Add(this.ribbonControl);
             this.Name = "GestionarClientes";
-            this.Size = new System.Drawing.Size(821, 446);
+            this.Size = new System.Drawing.Size(853, 446);
             ((System.ComponentModel.ISupportInitialize)(this.clientesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcclientes)).EndInit();

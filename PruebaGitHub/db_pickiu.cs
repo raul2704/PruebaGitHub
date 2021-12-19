@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PruebaGitHub
 {
@@ -54,6 +55,37 @@ namespace PruebaGitHub
                 guia.idCliente = pidcliente;                
                 SaveChanges();
             }
+        }
+
+        internal void Guardar_Cliente(Clientes pcliente)
+        {
+            if (pcliente.id == 0)
+                    Clientes.Add(pcliente);
+              SaveChanges();
+        }
+
+        internal bool Eliminar_Cliente(int idcliente)
+        {
+            try
+            {
+                Clientes cliente = Clientes.Find(idcliente);
+                Clientes.Remove(cliente);
+                SaveChanges();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+        internal void Modificar_Foto_Cliente(Clientes pcliente, string ficheroorigen)
+        {
+           string ficherodestino = @"D:\SGAM.net\fotos\" + pcliente.id.ToString() + ".jpg";
+           File.Copy(ficheroorigen, ficherodestino, true);           
+           pcliente.urlfoto = ficherodestino;
+           SaveChanges();
+            
         }
     }
 }
