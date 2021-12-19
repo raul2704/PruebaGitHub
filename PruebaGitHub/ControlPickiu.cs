@@ -114,5 +114,12 @@ namespace PruebaGitHub
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
         }
+
+        private void btnreportedistribucion_Click(object sender, EventArgs e)
+        {
+            FReportes freportes = new FReportes();
+            freportes.Cargar_Reporte_Distribucion();
+            freportes.Show();
+        }
     }
 }

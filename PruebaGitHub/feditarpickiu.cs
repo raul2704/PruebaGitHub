@@ -14,7 +14,8 @@ namespace PruebaGitHub
     {
         Vuelos aVuelo = null;
         Ciudades aCiudad = null;
-        Guias aGuia = null;                
+        Guias aGuia = null;
+        Pickiu aDistribucion = null;
         List<Ciudades> ListaCiudades = null;
         List<Clientes> ListaClientes = null;
         List<Flores> ListaFlores = null;
@@ -197,7 +198,20 @@ namespace PruebaGitHub
                       db.Agregar_Guia(g.numero, g.idCliente, aVuelo.id);
                   if (g.Estado == estado.modificado)
                       db.Modificar_Guia(g.id, g.numero, g.idCliente);
-               }            
+
+                    var lstdistribucion = ListaDistribucion.Where(d => d.idGuia == g.id).ToList();
+
+                  //Distribucion------------------------------------------------------
+                    foreach (Pickiu d in lstdistribucion)
+                    {
+                      if (d.Estado == estado.agregado)
+                          db.Agregar_Distribucion(d.idFlor, d.Cantidad, d.idGuia, d.idOrigen);
+                      if (g.Estado == estado.modificado)
+                          db.Modificar_Distribucion(d.id, d.idFlor, d.Cantidad, d.idGuia, d.idOrigen);
+                    }
+               }
+
+               
             }
         }
 
@@ -253,5 +267,45 @@ namespace PruebaGitHub
                 e.Cancel = true;
             }
         }
+
+        private void dgdistribucion_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (aDistribucion != null)
+            {
+                if (aDistribucion.id == 0)
+                    aDistribucion.Estado = estado.agregado;
+                else
+                    aDistribucion.Estado = estado.modificado;
+            }
+        }
+
+        private void dgdistribucion_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int idd = Convert.ToInt32(dgdistribucion.Rows[e.RowIndex].Cells[0].Value);
+            aDistribucion= ListaDistribucion.FirstOrDefault(d => d.id == idd);
+        }
+
+        private void dgdistribucion_RowValidated(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Validate())
+                Guardar_Distribucion_Local();
+        }
+        private void Guardar_Distribucion_Local()
+        {
+            if (aDistribucion != null && aDistribucion.Estado == estado.agregado && aDistribucion.id == 0)
+            {
+                int idd = 1;
+                if (ListaDistribucion != null)
+                {
+                    Pickiu Distribuciontemp = ListaDistribucion.LastOrDefault(d => d.id != 0);
+                    if (Distribuciontemp != null)
+                        idd = Distribuciontemp.id + 1;                       
+                                     
+                }
+                aDistribucion.id = idd;
+                aDistribucion.idGuia = aGuia.id;
+            }
+
+        }    
     }
 }

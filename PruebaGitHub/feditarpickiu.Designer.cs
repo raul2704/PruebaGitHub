@@ -38,6 +38,7 @@ namespace PruebaGitHub
             this.clientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.guiasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgdistribucion = new System.Windows.Forms.DataGridView();
+            this.cidd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbflores = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.floresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.colcant = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -168,6 +169,7 @@ namespace PruebaGitHub
             this.dgdistribucion.AllowUserToOrderColumns = true;
             this.dgdistribucion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgdistribucion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cidd,
             this.cbflores,
             this.colcant,
             this.cborigen});
@@ -177,7 +179,18 @@ namespace PruebaGitHub
             this.dgdistribucion.Name = "dgdistribucion";
             this.dgdistribucion.Size = new System.Drawing.Size(431, 131);
             this.dgdistribucion.TabIndex = 2;
+            this.dgdistribucion.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdistribucion_CellEndEdit);
             this.dgdistribucion.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgdistribucion_DataError);
+            this.dgdistribucion.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdistribucion_RowEnter);
+            this.dgdistribucion.RowValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgdistribucion_RowValidated);
+            // 
+            // cidd
+            // 
+            this.cidd.DataPropertyName = "id";
+            this.cidd.HeaderText = "id";
+            this.cidd.Name = "cidd";
+            this.cidd.ReadOnly = true;
+            this.cidd.Visible = false;
             // 
             // cbflores
             // 
@@ -762,11 +775,12 @@ namespace PruebaGitHub
         private System.Windows.Forms.BindingSource pickiuBindingSource;
         private System.Windows.Forms.DataGridView dgguias;
         private System.Windows.Forms.DataGridView dgdistribucion;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cbflores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
-        private System.Windows.Forms.DataGridViewComboBoxColumn cborigen;
         private System.Windows.Forms.DataGridViewTextBoxColumn idg;
         private System.Windows.Forms.DataGridViewTextBoxColumn colnoguia;
         private System.Windows.Forms.DataGridViewComboBoxColumn cbCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cidd;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cbflores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colcant;
+        private System.Windows.Forms.DataGridViewComboBoxColumn cborigen;
     }
 }

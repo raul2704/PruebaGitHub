@@ -33,12 +33,15 @@ namespace PruebaGitHub
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ControlPickiu));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.origenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cbciudad = new System.Windows.Forms.ComboBox();
             this.ciudadesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dgpickiu = new System.Windows.Forms.DataGridView();
+            this.idpk = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cgestionarpickiuBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
@@ -52,6 +55,7 @@ namespace PruebaGitHub
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.origenesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.origenesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labresumen = new System.Windows.Forms.ToolStripStatusLabel();
@@ -61,20 +65,17 @@ namespace PruebaGitHub
             this.btneliminar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.vuelosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.idpk = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.noVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaVueloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ciudadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnreportedistribucion = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -100,7 +101,7 @@ namespace PruebaGitHub
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgpickiu);
             this.splitContainer1.Panel2.Controls.Add(this.bindingNavigator1);
-            this.splitContainer1.Size = new System.Drawing.Size(474, 485);
+            this.splitContainer1.Size = new System.Drawing.Size(527, 485);
             this.splitContainer1.SplitterDistance = 34;
             this.splitContainer1.TabIndex = 2;
             // 
@@ -112,10 +113,6 @@ namespace PruebaGitHub
             this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
             this.dateTimePicker1.TabIndex = 3;
             this.dateTimePicker1.Validated += new System.EventHandler(this.dateTimePicker1_Validated);
-            // 
-            // origenesBindingSource
-            // 
-            this.origenesBindingSource.DataSource = typeof(PruebaGitHub.Origenes);
             // 
             // cbciudad
             // 
@@ -168,9 +165,41 @@ namespace PruebaGitHub
             this.dgpickiu.Name = "dgpickiu";
             this.dgpickiu.ReadOnly = true;
             this.dgpickiu.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgpickiu.Size = new System.Drawing.Size(474, 422);
+            this.dgpickiu.Size = new System.Drawing.Size(527, 422);
             this.dgpickiu.TabIndex = 0;
             this.dgpickiu.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgpickiu_RowEnter);
+            // 
+            // idpk
+            // 
+            this.idpk.DataPropertyName = "idvuelo";
+            this.idpk.HeaderText = "id";
+            this.idpk.Name = "idpk";
+            this.idpk.ReadOnly = true;
+            this.idpk.Visible = false;
+            // 
+            // noVueloDataGridViewTextBoxColumn
+            // 
+            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
+            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
+            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.noVueloDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // fechaVueloDataGridViewTextBoxColumn
+            // 
+            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
+            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
+            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaVueloDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // ciudadDataGridViewTextBoxColumn
+            // 
+            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
+            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
+            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
+            this.ciudadDataGridViewTextBoxColumn.Width = 180;
             // 
             // cgestionarpickiuBindingSource
             // 
@@ -201,7 +230,7 @@ namespace PruebaGitHub
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(474, 25);
+            this.bindingNavigator1.Size = new System.Drawing.Size(527, 25);
             this.bindingNavigator1.TabIndex = 1;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -294,6 +323,10 @@ namespace PruebaGitHub
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             this.bindingNavigatorSeparator2.Visible = false;
             // 
+            // origenesBindingSource
+            // 
+            this.origenesBindingSource.DataSource = typeof(PruebaGitHub.Origenes);
+            // 
             // origenesBindingSource1
             // 
             this.origenesBindingSource1.DataSource = typeof(PruebaGitHub.Origenes);
@@ -304,7 +337,7 @@ namespace PruebaGitHub
             this.labresumen});
             this.statusStrip1.Location = new System.Drawing.Point(0, 510);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(474, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(527, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -320,10 +353,11 @@ namespace PruebaGitHub
             this.btnagregar,
             this.btneditar,
             this.btneliminar,
-            this.toolStripSeparator1});
+            this.toolStripSeparator1,
+            this.btnreportedistribucion});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(474, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(527, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -362,37 +396,14 @@ namespace PruebaGitHub
             // 
             this.vuelosBindingSource.DataSource = typeof(PruebaGitHub.Vuelos);
             // 
-            // idpk
+            // btnreportedistribucion
             // 
-            this.idpk.DataPropertyName = "idvuelo";
-            this.idpk.HeaderText = "id";
-            this.idpk.Name = "idpk";
-            this.idpk.ReadOnly = true;
-            this.idpk.Visible = false;
-            // 
-            // noVueloDataGridViewTextBoxColumn
-            // 
-            this.noVueloDataGridViewTextBoxColumn.DataPropertyName = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.HeaderText = "NoVuelo";
-            this.noVueloDataGridViewTextBoxColumn.Name = "noVueloDataGridViewTextBoxColumn";
-            this.noVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.noVueloDataGridViewTextBoxColumn.Width = 80;
-            // 
-            // fechaVueloDataGridViewTextBoxColumn
-            // 
-            this.fechaVueloDataGridViewTextBoxColumn.DataPropertyName = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.HeaderText = "FechaVuelo";
-            this.fechaVueloDataGridViewTextBoxColumn.Name = "fechaVueloDataGridViewTextBoxColumn";
-            this.fechaVueloDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fechaVueloDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // ciudadDataGridViewTextBoxColumn
-            // 
-            this.ciudadDataGridViewTextBoxColumn.DataPropertyName = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.HeaderText = "Ciudad";
-            this.ciudadDataGridViewTextBoxColumn.Name = "ciudadDataGridViewTextBoxColumn";
-            this.ciudadDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ciudadDataGridViewTextBoxColumn.Width = 180;
+            this.btnreportedistribucion.Image = global::PruebaGitHub.Properties.Resources.apply_16x16;
+            this.btnreportedistribucion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnreportedistribucion.Name = "btnreportedistribucion";
+            this.btnreportedistribucion.Size = new System.Drawing.Size(137, 22);
+            this.btnreportedistribucion.Text = "Reporte_Distribucion";
+            this.btnreportedistribucion.Click += new System.EventHandler(this.btnreportedistribucion_Click);
             // 
             // ControlPickiu
             // 
@@ -402,7 +413,7 @@ namespace PruebaGitHub
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "ControlPickiu";
-            this.Size = new System.Drawing.Size(474, 532);
+            this.Size = new System.Drawing.Size(527, 532);
             this.Load += new System.EventHandler(this.ControlPickiu_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -410,13 +421,13 @@ namespace PruebaGitHub
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ciudadesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgpickiu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cgestionarpickiuBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.origenesBindingSource1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -464,5 +475,6 @@ namespace PruebaGitHub
         private System.Windows.Forms.DataGridViewTextBoxColumn noVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaVueloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciudadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton btnreportedistribucion;
     }
 }

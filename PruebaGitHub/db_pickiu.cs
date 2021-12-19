@@ -64,18 +64,39 @@ namespace PruebaGitHub
               SaveChanges();
         }
 
+        internal void Modificar_Distribucion(int pidd, int pidflor,int pcant,int pidguia,int pidorigen)
+        {
+            Pickiu Distribucion = Pickiu.FirstOrDefault(d => d.id == pidd);
+            
+            if(Distribucion!=null)
+            {
+               Distribucion.idFlor = pidflor;
+               Distribucion.Cantidad = pcant;
+               Distribucion.idGuia = pidguia;
+               Distribucion.idOrigen = pidorigen;
+            }            
+            SaveChanges();
+        }
+
+        internal void Agregar_Distribucion(int pidflor, int pcant, int pidguia, int pidorigen)
+        {
+           Pickiu Distribucion = new Pickiu { idFlor = pidflor, Cantidad = pcant, idGuia = pidguia, idOrigen = pidorigen };
+           Pickiu.Add(Distribucion);
+           SaveChanges();
+        }
+
         internal bool Eliminar_Cliente(int idcliente)
         {
             try
             {
-                Clientes cliente = Clientes.Find(idcliente);
-                Clientes.Remove(cliente);
-                SaveChanges();
-                return true;
+               Clientes cliente = Clientes.Find(idcliente);
+               Clientes.Remove(cliente);
+               SaveChanges();
+               return true;
             }
             catch
             {
-                return false;
+               return false;
             }
         }
         
