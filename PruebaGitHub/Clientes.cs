@@ -26,8 +26,10 @@ namespace PruebaGitHub
         public string Telefono { get; set; }
         public Nullable<System.DateTime> fecha_Update { get; set; }
         public string urlfoto { get; set; }
+        public Nullable<int> idcompañia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Guias> Guias { get; set; }
+        public virtual Compañia Compañia { get; set; }
     }
 }

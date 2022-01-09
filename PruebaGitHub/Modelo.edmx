@@ -23,6 +23,16 @@
           <Property Name="Telefono" Type="nvarchar" MaxLength="11" />
           <Property Name="fecha_Update" Type="datetime" />
           <Property Name="urlfoto" Type="nvarchar(max)" />
+          <Property Name="idcompañia" Type="int" />
+        </EntityType>
+        <EntityType Name="Compañia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreComp" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dirección" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefono" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Fincas">
           <Key>
@@ -106,6 +116,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Clientes_Compañia">
+          <End Role="Compañia" Type="Self.Compañia" Multiplicity="0..1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compañia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="idcompañia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Fincas_Ciudades">
           <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -120,13 +142,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Guias_Clientes">
-          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
+        <Association Name="FK_Guias_Compañia">
+          <End Role="Compañia" Type="Self.Compañia" Multiplicity="1" />
           <End Role="Guias" Type="Self.Guias" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Clientes">
+            <Principal Role="Compañia">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Guias">
@@ -269,6 +289,7 @@
         <EntityContainer Name="DBPickiuModelStoreContainer">
           <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Compañia" EntityType="Self.Compañia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fincas" EntityType="Self.Fincas" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flores" EntityType="Self.Flores" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Guias" EntityType="Self.Guias" Schema="dbo" store:Type="Tables" />
@@ -281,12 +302,16 @@
             <End Role="Paises" EntitySet="Paises" />
             <End Role="Ciudades" EntitySet="Ciudades" />
           </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Compañia" Association="Self.FK_Clientes_Compañia">
+            <End Role="Compañia" EntitySet="Compañia" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
           <AssociationSet Name="FK_Fincas_Ciudades" Association="Self.FK_Fincas_Ciudades">
             <End Role="Ciudades" EntitySet="Ciudades" />
             <End Role="Fincas" EntitySet="Fincas" />
           </AssociationSet>
-          <AssociationSet Name="FK_Guias_Clientes" Association="Self.FK_Guias_Clientes">
-            <End Role="Clientes" EntitySet="Clientes" />
+          <AssociationSet Name="FK_Guias_Compañia" Association="Self.FK_Guias_Compañia">
+            <End Role="Compañia" EntitySet="Compañia" />
             <End Role="Guias" EntitySet="Guias" />
           </AssociationSet>
           <AssociationSet Name="FK_Guias_Vuelos" Association="Self.FK_Guias_Vuelos">
@@ -357,6 +382,8 @@
           <NavigationProperty Name="Guias" Relationship="Self.FK_Guias_Clientes" FromRole="Clientes" ToRole="Guias" />
           <Property Name="fecha_Update" Type="DateTime" Precision="3" />
           <Property Name="urlfoto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="idcompañia" Type="Int32" />
+          <NavigationProperty Name="Compañia" Relationship="DBPickiuModel.FK_Clientes_Compañia" FromRole="Clientes" ToRole="Compañia" />
         </EntityType>
         <EntityType Name="Fincas">
           <Key>
@@ -388,6 +415,7 @@
           <NavigationProperty Name="Clientes" Relationship="Self.FK_Guias_Clientes" FromRole="Guias" ToRole="Clientes" />
           <NavigationProperty Name="Vuelos" Relationship="Self.FK_Guias_Vuelos" FromRole="Guias" ToRole="Vuelos" />
           <NavigationProperty Name="Pickiu" Relationship="Self.FK_Pickiu_Guias" FromRole="Guias" ToRole="Pickiu" />
+          <NavigationProperty Name="Compañia" Relationship="DBPickiuModel.FK_Guias_Compañia" FromRole="Guias" ToRole="Compañia" />
         </EntityType>
         <EntityType Name="Paises">
           <Key>
@@ -605,6 +633,15 @@
             <End Role="Origenes" EntitySet="Origenes" />
             <End Role="Pickiu" EntitySet="Pickiu" />
           </AssociationSet>
+          <EntitySet Name="Compañia" EntityType="DBPickiuModel.Compañia" />
+          <AssociationSet Name="FK_Clientes_Compañia" Association="DBPickiuModel.FK_Clientes_Compañia">
+            <End Role="Compañia" EntitySet="Compañia" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Guias_Compañia" Association="DBPickiuModel.FK_Guias_Compañia">
+            <End Role="Compañia" EntitySet="Compañia" />
+            <End Role="Guias" EntitySet="Guias" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Origenes">
           <Key>
@@ -685,6 +722,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Compañia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreComp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dirección" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Clientes" Relationship="DBPickiuModel.FK_Clientes_Compañia" FromRole="Compañia" ToRole="Clientes" />
+          <NavigationProperty Name="Guias" Relationship="DBPickiuModel.FK_Guias_Compañia" FromRole="Compañia" ToRole="Guias" />
+        </EntityType>
+        <Association Name="FK_Clientes_Compañia">
+          <End Type="DBPickiuModel.Compañia" Role="Compañia" Multiplicity="0..1" />
+          <End Type="DBPickiuModel.Clientes" Role="Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compañia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="idcompañia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Guias_Compañia">
+          <End Type="DBPickiuModel.Compañia" Role="Compañia" Multiplicity="1" />
+          <End Type="DBPickiuModel.Guias" Role="Guias" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Compañia">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Guias">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -703,6 +775,7 @@
           <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="DBPickiuModel.Clientes">
               <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="idcompañia" ColumnName="idcompañia" />
                 <ScalarProperty Name="urlfoto" ColumnName="urlfoto" />
                 <ScalarProperty Name="fecha_Update" ColumnName="fecha_Update" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -784,6 +857,16 @@
                 <ScalarProperty Name="idFinca" ColumnName="idFinca" />
                 <ScalarProperty Name="idCiudad" ColumnName="idCiudad" />
                 <ScalarProperty Name="idPais" ColumnName="idPais" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Compañia">
+            <EntityTypeMapping TypeName="DBPickiuModel.Compañia">
+              <MappingFragment StoreEntitySet="Compañia">
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Dirección" ColumnName="Dirección" />
+                <ScalarProperty Name="NombreComp" ColumnName="NombreComp" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

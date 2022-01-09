@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace PruebaGitHub
 {
-    public partial class Pickiu
+    public partial class Vuelos
     {
-        public estado Estado { set; get; } = estado.normal;
-
         public string Mes
         {
-            get { return string.Format("{0:MMMM}", Guias.Vuelos.Fecha); }
+           get { return string.Format("{0:MMMM}", Fecha); }
         }
     }
 }

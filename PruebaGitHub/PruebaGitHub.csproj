@@ -97,6 +97,9 @@
     <Compile Include="Ciudades.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Compañia.cs">
+      <DependentUpon>Modelo.tt</DependentUpon>
+    </Compile>
     <Compile Include="ControlOrigenes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,10 +125,10 @@
     <Compile Include="FReportes.Designer.cs">
       <DependentUpon>FReportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report_Distribucion.cs">
+    <Compile Include="Reportes\Report_Distribucion.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Report_Distribucion.Designer.cs">
+    <Compile Include="Reportes\Report_Distribucion.Designer.cs">
       <DependentUpon>Report_Distribucion.cs</DependentUpon>
     </Compile>
     <Compile Include="t_Clientes.cs" />
@@ -179,6 +182,7 @@
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
     <Compile Include="t_Pickiu.cs" />
+    <Compile Include="t_Vuelos.cs" />
     <Compile Include="Vuelos.cs">
       <DependentUpon>Modelo.tt</DependentUpon>
     </Compile>
@@ -226,7 +230,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report_Distribucion.resx">
+    <EmbeddedResource Include="Reportes\Report_Distribucion.resx">
       <DependentUpon>Report_Distribucion.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Modelo.edmx">

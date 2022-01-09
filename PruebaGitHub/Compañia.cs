@@ -12,23 +12,23 @@ namespace PruebaGitHub
     using System;
     using System.Collections.Generic;
     
-    public partial class Guias
+    public partial class Compañia
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Guias()
+        public Compañia()
         {
-            this.Pickiu = new HashSet<Pickiu>();
+            this.Clientes = new HashSet<Clientes>();
+            this.Guias = new HashSet<Guias>();
         }
     
         public int id { get; set; }
-        public int idVuelo { get; set; }
-        public int idCliente { get; set; }
-        public int numero { get; set; }
+        public string NombreComp { get; set; }
+        public string Dirección { get; set; }
+        public string Telefono { get; set; }
     
-        public virtual Clientes Clientes { get; set; }
-        public virtual Vuelos Vuelos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Pickiu> Pickiu { get; set; }
-        public virtual Compañia Compañia { get; set; }
+        public virtual ICollection<Clientes> Clientes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Guias> Guias { get; set; }
     }
 }

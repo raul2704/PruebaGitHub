@@ -6,8 +6,8 @@
     <edmx:Diagrams>
       <Diagram DiagramId="04d2f15744c0476e9089e671c90fded0" Name="Diagram1">
         <EntityTypeShape EntityType="DBPickiuModel.Ciudades" Width="1.5" PointX="2.625" PointY="5.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBPickiuModel.Clientes" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBPickiuModel.Fincas" Width="1.5" PointX="4.375" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPickiuModel.Clientes" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBPickiuModel.Fincas" Width="1.5" PointX="2.125" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Flores" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Guias" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DBPickiuModel.Paises" Width="1.5" PointX="0.5" PointY="5.375" IsExpanded="true" />
@@ -28,6 +28,9 @@
         <AssociationConnector Association="DBPickiuModel.FK_Origenes_Paises" />
         <AssociationConnector Association="DBPickiuModel.FK_Origenes_Siglas" />
         <AssociationConnector Association="DBPickiuModel.FK_Pickiu_Origenes" />
+        <EntityTypeShape EntityType="DBPickiuModel.Compañia" Width="1.5" PointX="7.875" PointY="0.5" />
+        <AssociationConnector Association="DBPickiuModel.FK_Clientes_Compañia" />
+        <AssociationConnector Association="DBPickiuModel.FK_Guias_Compañia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

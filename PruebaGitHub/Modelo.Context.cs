@@ -35,5 +35,6 @@ namespace PruebaGitHub
         public virtual DbSet<Siglas> Siglas { get; set; }
         public virtual DbSet<Vuelos> Vuelos { get; set; }
         public virtual DbSet<Origenes> Origenes { get; set; }
+        public virtual DbSet<Compañia> Compañia { get; set; }
     }
 }
