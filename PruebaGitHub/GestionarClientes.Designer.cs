@@ -159,14 +159,21 @@ namespace PruebaGitHub
             // 
             this.gcclientes.DataSource = this.clientesBindingSource;
             this.gcclientes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcclientes.EmbeddedNavigator.Buttons.Append.Visible = false;
+            this.gcclientes.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+            this.gcclientes.EmbeddedNavigator.Buttons.Edit.Visible = false;
+            this.gcclientes.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+            this.gcclientes.EmbeddedNavigator.Buttons.Remove.Visible = false;
             this.gcclientes.Location = new System.Drawing.Point(0, 116);
             this.gcclientes.MainView = this.gvclientes;
             this.gcclientes.MenuManager = this.ribbonControl;
             this.gcclientes.Name = "gcclientes";
             this.gcclientes.Size = new System.Drawing.Size(853, 330);
             this.gcclientes.TabIndex = 1;
+            this.gcclientes.UseEmbeddedNavigator = true;
             this.gcclientes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvclientes});
+            this.gcclientes.Click += new System.EventHandler(this.gcclientes_Click);
             // 
             // gvclientes
             // 
@@ -179,6 +186,7 @@ namespace PruebaGitHub
             this.gvclientes.GridControl = this.gcclientes;
             this.gvclientes.Name = "gvclientes";
             this.gvclientes.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
+            this.gvclientes.OptionsView.ShowFooter = true;
             this.gvclientes.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvclientes_RowClick);
             this.gvclientes.InitNewRow += new DevExpress.XtraGrid.Views.Grid.InitNewRowEventHandler(this.gvclientes_InitNewRow);
             this.gvclientes.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvclientes_FocusedRowChanged);
@@ -190,6 +198,8 @@ namespace PruebaGitHub
             // 
             this.colid.FieldName = "id";
             this.colid.Name = "colid";
+            this.colid.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "id", "{0}")});
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
             this.colid.Width = 63;
@@ -198,6 +208,8 @@ namespace PruebaGitHub
             // 
             this.colNombre.FieldName = "Nombre";
             this.colNombre.Name = "colNombre";
+            this.colNombre.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count, "Nombre", "Total {0}")});
             this.colNombre.Visible = true;
             this.colNombre.VisibleIndex = 1;
             this.colNombre.Width = 230;

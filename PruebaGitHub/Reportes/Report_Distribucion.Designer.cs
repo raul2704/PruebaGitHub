@@ -58,6 +58,7 @@ namespace PruebaGitHub
             this.tableCell11 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrTableCell2 = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.efDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
@@ -125,6 +126,7 @@ namespace PruebaGitHub
             // 
             // TopMargin
             // 
+            this.TopMargin.HeightF = 50F;
             this.TopMargin.Name = "TopMargin";
             // 
             // BottomMargin
@@ -132,6 +134,7 @@ namespace PruebaGitHub
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.pageInfo1,
             this.pageInfo2});
+            this.BottomMargin.HeightF = 35F;
             this.BottomMargin.Name = "BottomMargin";
             // 
             // pageInfo1
@@ -180,7 +183,7 @@ namespace PruebaGitHub
             this.table1.Name = "table1";
             this.table1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow1});
-            this.table1.SizeF = new System.Drawing.SizeF(458.6593F, 28F);
+            this.table1.SizeF = new System.Drawing.SizeF(633.7905F, 28F);
             // 
             // tableRow1
             // 
@@ -188,7 +191,8 @@ namespace PruebaGitHub
             this.tableCell2,
             this.tableCell3,
             this.tableCell5,
-            this.tableCell6});
+            this.tableCell6,
+            this.xrTableCell2});
             this.tableRow1.Name = "tableRow1";
             this.tableRow1.Weight = 1D;
             // 
@@ -234,7 +238,7 @@ namespace PruebaGitHub
             this.table2.OddStyleName = "DetailData3_Odd";
             this.table2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.tableRow2});
-            this.table2.SizeF = new System.Drawing.SizeF(643.3398F, 25F);
+            this.table2.SizeF = new System.Drawing.SizeF(633.1302F, 25F);
             // 
             // tableRow2
             // 
@@ -287,7 +291,15 @@ namespace PruebaGitHub
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.StyleName = "DetailData1";
             this.xrTableCell1.Text = "xrTableCell1";
-            this.xrTableCell1.Weight = 0.32591942420372594D;
+            this.xrTableCell1.Weight = 0.30796613749998025D;
+            // 
+            // xrTableCell2
+            // 
+            this.xrTableCell2.Multiline = true;
+            this.xrTableCell2.Name = "xrTableCell2";
+            this.xrTableCell2.StyleName = "DetailCaption1";
+            this.xrTableCell2.Text = "Mes";
+            this.xrTableCell2.Weight = 0.26943264898500763D;
             // 
             // Report_Distribucion
             // 
@@ -302,7 +314,7 @@ namespace PruebaGitHub
             this.DataMember = "Vuelos";
             this.DataSource = this.efDataSource1;
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(77, 100, 100, 100);
+            this.Margins = new System.Drawing.Printing.Margins(51, 50, 50, 35);
             this.StyleSheet.AddRange(new DevExpress.XtraReports.UI.XRControlStyle[] {
             this.Title,
             this.DetailCaption1,
@@ -346,5 +358,6 @@ namespace PruebaGitHub
         private DevExpress.XtraReports.UI.XRTableCell tableCell11;
         private DevExpress.XtraReports.UI.XRTableCell tableCell12;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
+        private DevExpress.XtraReports.UI.XRTableCell xrTableCell2;
     }
 }

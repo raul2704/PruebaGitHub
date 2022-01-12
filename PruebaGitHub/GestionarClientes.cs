@@ -117,5 +117,10 @@ namespace PruebaGitHub
         {
             cliente.fecha_Update = DateTime.Now;
         }
+
+        private void gcclientes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
